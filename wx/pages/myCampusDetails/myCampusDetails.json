@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "校区详情",
+  "usingComponents": {},
+  "permission":{
+    "scope.userLocation":{
+      "desc":"你的位置信心将用于小程序接口的效果展示"
+    }
+  }
+}

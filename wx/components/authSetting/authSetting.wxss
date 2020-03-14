@@ -1,0 +1,168 @@
+/**index.wxss**/
+.auth-setting{
+  position: fixed;
+  z-index: 500;
+  background: rgba(0, 0, 0, .6);
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+.auth-contain{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 502;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  border-radius: 12rpx;
+  width: 72%;
+  height: 400rpx;
+  background: #fff; 
+  text-align: center;
+}
+.auth-text1{
+  color: #333;
+  font-size: 36rpx;
+  line-height: 50rpx;
+  padding: 60rpx 0 20rpx;
+}
+.auth-text2{
+  color: #555;
+  font-size: 26rpx;
+  line-height: 37rpx;
+  padding: 0rpx 56rpx 55rpx;
+}
+
+.auth-contain-button{
+  width: 400rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  border-radius: 40rpx;
+  background: #23A1FF;
+  color: #fff;
+}
+.hide{
+  display: none;
+}
+.show{
+  display: block;
+}
+.course-bg{
+  background:rgba(0,0,0,0.6);
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left:0;
+  z-index: 100;
+}
+/*用户手机号*/
+.user-phone{
+  height: 600rpx;
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+  z-index: 500;
+  width: 100%;
+  padding: 40rpx;
+}
+.user-phone-top{
+  height: 70rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 670rpx;
+}
+.phone-form{
+  display: inline-block;
+}
+.user-phone-top image{
+  height: 26rpx;
+  width: 28rpx;
+}
+.user-phone-logo{
+  font-size: 32rpx;
+  color: #000;
+  margin: 0 30rpx 0 30rpx;
+}
+.phone-confirm{
+  font-size: 48rpx;
+  color: #111;
+  margin: 20rpx 0 50rpx 0;
+}
+.phone-btn{
+  width: 42%;
+  color: #999;
+  background: #dcdcdc;
+  margin: 0;
+  margin-top: 50rpx;
+  float: left;
+}
+.phone-btn-right{
+  width: 40%;
+  color: #fff;
+  background: #009802;
+  margin: 0;
+  margin-top: 50rpx;
+  float: right;
+}
+.phone-input{
+  height: 110rpx;
+  line-height: 110rpx;
+  border-top: 1rpx solid #E6E6E6;
+  border-bottom: 1rpx solid #E6E6E6;
+  width: 670rpx;
+  display: inline-block;
+  color: #111;
+}
+.phone-code{
+  height: 110rpx;
+  line-height: 110rpx;
+  width: 670rpx;
+  color: #111;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.phone-code input{
+  display: flex;
+  width: 500rpx;
+}
+.phone-code text{
+  color: #7485A9;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+/*友情提示*/
+.phone-tips{
+  width: 670rpx;
+  font-size: 32rpx;
+}
+.tips-img image{
+  height: 40rpx;
+  width: 40rpx;
+}
+.tips-title{
+  margin: 20rpx 0 40rpx 0; 
+}
+.tips-content{
+  line-height: 42rpx;
+}
+.wx-btn{
+  width: 232rpx;
+  height: 76rpx;
+  line-height: 76rpx;
+  background:rgba(44,140,255,1);
+  border-radius: 4rpx;
+  color: #fff;
+  font-size: 32rpx
+}
+.wx-img{
+  width:128rpx; height:186rpx; margin: 25% 0 18% 42%;
+  display:inline-block;
+}

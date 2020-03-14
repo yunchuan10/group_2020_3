@@ -1,0 +1,250 @@
+
+// 公共变量
+@base:#555;
+@base1: #fff;
+@base2: #fff;
+
+#doyoo_mobile_chat_hint{display: none !important;}
+
+.mint-toast{
+    z-index: 9999999 !important;
+}
+
+
+
+
+
+
+
+
+
+// reset样式
+/**
+ * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
+ * http://cssreset.com
+ */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video, input {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-weight: normal;
+    vertical-align: baseline;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+input{outline:none;}
+
+ /* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, menu, nav, section {
+    display: block;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* custom */
+a{
+    color: @base;
+    text-decoration: none;
+    -webkit-backface-visibility: hidden;
+}
+
+li {
+    list-style: none;
+}
+
+html{
+    height: 100%;
+}
+html, body {
+    // touch-action: none;
+    background: #f4f4f4;
+    width: 100%;
+    -webkit-overflow-scrolling : touch;
+    font-family: "Arial","PingFang SC","Microsoft YaHei","SimSun","sans-serif";
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+body{
+    font-size: 12px;
+    // color: @base;
+    min-height: 100%;
+    background: #EFEFF4
+}
+
+/* 按钮可点击状态 */
+body .button-able{
+    border: none !important;
+    border-color: #2C8CFF !important;
+    background:linear-gradient(180deg,#19B3FF 0%,#2A94FF 100%) !important;
+}
+button{
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+    border-style: none;
+    border-radius: 0;
+}
+// 带头部的样式
+.out-contain{
+    left:0;
+    top:0;
+    height: 100%;
+    position: relative;
+    overflow-y: auto;
+    box-sizing: border-box;
+    font-size: .24rem;
+    color: @base;
+    background: #F4F4F4;
+    padding-top: 1rem;
+}
+
+//公共样式类
+.clear{
+    &:after{
+        content:"";
+        display:block;
+        clear:both;
+        visibility: hidden;
+    }
+}
+.hide{display: none;}
+.ellipsis{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis;
+}
+.ellipsis2{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+
+
+// flex公共样式
+.display(...){
+    display: @arguments;
+}
+.display(@value)when(@value=flex){
+    display:-webkit-box;
+    display:-webkit-flex;
+    display:-ms-flexbox;
+    display:@value;
+}
+.display(@value)when(@value=inline-flex){
+    display:-webkit-inline-box;
+    display:-webkit-inline-flex;
+    display:-ms-inline-flexbox;
+    display:@value;
+}
+.flexbox(){
+    display:-webkit-box;
+    display:-webkit-flex;
+    display:-ms-flexbox;
+    display:flex;
+}
+.flexbox{
+    .flexbox()
+}
+.flex(@v:1){
+    -webkit-box-flex:@v;
+    -webkit-flex:@v;
+    -ms-flex:@v;
+    flex:@v;
+    width: 100%;
+}
+// 默认加webkit前缀
+.css-prefix(@property,@value){
+    -webkit-@{property}:@value;
+    @{property}:@value;
+}
+// row | column | row-reverse
+// 默认值：column
+.flex-direction(@value)when(@value=row){
+    -ms-flex-direction:@value;
+    .css-prefix(box-orient,horizontal);
+    .css-prefix(flex-direction,@value);
+}
+.flex-direction(@value:column)when(default()){
+    -ms-flex-direction:@value;
+    .css-prefix(box-orient,vertical);
+    .css-prefix(flex-direction,@value);
+}
+.flex-direction(@value)when(@value=row-reverse){
+    -ms-flex-direction:@value;
+    .css-prefix(box-direction,reverse);
+    .css-prefix(flex-direction,@value);
+}
+// flex-start | flex-end | center | space-between
+// 默认值：center
+.justify-content(@value)when(@value=flex-start){
+    -ms-flex-pack:start;
+    .css-prefix(box-pack,start);
+    .css-prefix(justify-content,@value);
+}
+.justify-content(@value)when(@value=flex-end){
+    -ms-flex-pack:end;
+    .css-prefix(box-pack,end);
+    .css-prefix(justify-content,@value);
+}
+.justify-content(@value:center)when(default()){
+    -ms-flex-pack:@value;
+    .css-prefix(box-pack,@value);
+    .css-prefix(justify-content,@value);
+}
+.justify-content(@value)when(@value=space-between){
+    -ms-flex-pack:justify;
+    .css-prefix(box-pack,justify);
+    .css-prefix(justify-content,@value);
+}
+// flex-start | flex-end | center | stretch
+// 默认值：center
+.align-items(@value)when(@value=flex-start){
+    -ms-flex-align:start;
+    .css-prefix(box-align,start);
+    .css-prefix(align-items,@value);
+}
+.align-items(@value)when(@value=flex-end){
+    -ms-flex-align:end;
+    .css-prefix(box-align,end);
+    .css-prefix(align-items,@value);
+}
+.align-items(@value:center)when(default()){
+    -ms-flex-align:@value;
+    .css-prefix(box-align,@value);
+    .css-prefix(align-items,@value);
+}
+.align-items(@value)when(@value=stretch){
+    -ms-flex-align:@value;
+    .css-prefix(box-align,@value);
+    .css-prefix(align-items,@value);
+}
+
+.order(@value){
+    -ms-flex-order: @value;
+    -webkit-order: @value;
+    flex-order: @value;
+    order: @value;
+}
+
+
+
+

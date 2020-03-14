@@ -1,0 +1,57 @@
+
+
+<view class='order-pay'>
+  <!-- 请选择问题类型 -->
+  <view class='pay-type'>
+    <view class='pay-title'>请选择问题类型</view>
+    <view class='type-box' data-id='1' data-tex='休学' bindtap='checkedQuestion'>
+      <text class=''>休学</text>
+      <image class='type-box-r' src="{{'/img/common/i'+(select == 1 ?'5':'4')+'.png'}}"></image>
+    </view>
+    <view class='type-box' data-id='2' data-tex='换课程换专业' bindtap='checkedQuestion'>
+      <text class=''>换课程换专业</text>
+      <image class='type-box-r' src="{{'/img/common/i'+(select == 2 ?'5':'4')+'.png'}}"></image>
+    </view>
+    <view class='type-box' data-id='3' data-tex='其他' bindtap='checkedQuestion'>
+      <text class=''>其他</text>
+      <image class='type-box-r' src="{{'/img/common/i'+(select == 3 ?'5':'4')+'.png'}}"></image>
+    </view>
+  </view>
+
+   <!-- 问题描述 -->
+  <view class='pay-type'>
+    <view class='pay-title'>问题描述</view>
+    <textarea class='qs-texta' placeholder="请简单描述要投诉或反馈的内容，我们会尽快处理您的问题" value='' bindblur="bindTextAreaBlur" ></textarea>
+  </view>
+
+  <!-- 手机号 -->
+  <view class='pay-type'>
+    <view class='pay-title'>手机号</view>
+    <view class='type-box'>
+      <input class='pay-ph' maxlength='11' placeholder='请输入手机号' type='number' value="{{phoneNumber}}" bindblur='blurPhone'></input>
+      <image class='type-box-r' src="{{'/img/common/i8.png'}}" bindtap='clearNumber'></image>
+    </view>
+  </view>
+  <view class='ph-tips'>
+    <text>* </text>  请填写您常用的正确手机号，确保我们能联系上您本人。
+  </view>
+
+  
+
+  <!-- 立即支付 -->
+  <view class='pay-btn'>
+    <button class='button-able' disabled="{{false}}" bindtap='submit'>提交</button>
+  </view>
+
+</view>
+
+
+
+
+
+
+
+
+
+
+

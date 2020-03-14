@@ -1,0 +1,51 @@
+<!--pages/leftSlide/leftSlide.wxml-->
+<view class="item-wrapper">
+    <wxs module="filters" src="../../utils/toFixed.wxs"></wxs>
+    <!-- 缺省页面 -->
+    <view class='appointment-default-page' wx:if="{{ newAppointment.length == 0 }}">
+        <view class='appointment-default-content'>
+          <image class='appointment-default-img' src='/img/my/appointmentDefault_icon.png'></image>
+          <text class='appointment-default-text'>您尚未预约公开课哦 </text>
+          <text class='appointment-default-text'>快去课程列表预约公开课吧!</text>
+        </view>
+    </view>
+    <view class="item-list" wx:if="{{ newAppointment.length !== 0 }}" wx:for="{{newAppointment}}" wx:for-item="item" wx:for-index="index" wx:key="that">
+        <view class="item-info inner" data-index="{{index}}" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" style="left:{{ filters.maxLeft(item.left) + 'rpx' }}"  data-id="{{ item.id }}" bindtap="appointmentDetail">
+            <!-- <image class="info-img" src="{{item.img}}"></image> -->
+            <view class='info-img' style="background:#EFEFF4 url('{{item.small_img}}') no-repeat  center center / contain">
+        </view>
+            <view class="info-wrapper">
+                <view class="info-desc">
+                    <view class="name">{{item.title}}</view>
+                </view>
+                <view class="info-content">
+                  <view class="info-data">
+                      <view>
+                          <text>{{ filters.toStrings(item.startTime,5,7) }}月</text>
+                          <text>{{ filters.toStrings(item.startTime,8,10) }}日</text>
+                      </view>
+                      <view class='info-data-time'>
+                          <text>{{ filters.toStrings(item.startTime,11,16) }}</text>
+                          -
+                          <text>{{ filters.toStrings(item.endTime,11,16) }}</text>
+                      </view>
+                  </view>
+                  <text class='info-content-footer'>{{item.book_num}}人已预约</text>
+               </view>
+            </view>
+        </view>
+        <view class="item-oper">
+            <view class="oper-delete" data-id="{{ item.id }}" bindtap="itemDelete" data-index="{{index}}">
+            <image class='del_icon' src='/img/my/cancel_icon.png'></image>
+            <text>取消预约</text>
+            </view>
+        </view>
+    </view>
+</view>
+<!-- 加载提示 -->
+<view class="weui-loadmore" hidden="{{hide}}">
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore__tips">努力加载中</view>
+</view>
+ <!-- 到底部提示文案 -->
+<view class='appointment-end-title' hidden="{{appointmentTitle}}">预约加载完毕 ~_~</view>

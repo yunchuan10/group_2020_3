@@ -1,0 +1,204 @@
+<!-- 公开课-->
+<view class='open-class'>
+  <wxs module="filters" src="../../utils/toFixed.wxs"></wxs>
+  <!-- 授权弹框 -->
+  <auth-setting wx:if="{{!userInfo}}" bind:myevent="getOpenClassInfo"></auth-setting>
+  <!--课程介绍-->
+  <view class='class-header'>
+    <view class='course-tag' wx:if="{{liveState == '1'}}">直播中</view>
+    <image class='class-img' wx:if="{{courseInfo.big_img}}" src="{{'https:'+ courseInfo.big_img}}"></image>
+     <view class='class-details'>
+      <view class='details-box'>
+        <view class='box-left'>
+          <view class='class-name'>
+            <text wx:if="{{courseInfo.keyWord}}" class='label'>{{courseInfo.keyWord}}</text>
+            <text class='class-title'>{{courseInfo.title}}</text>
+          </view>
+          <view class='describe'>{{courseInfo.subtitle}}</view>
+        </view>
+        <view  class='course-collection' bindtap='bindShowShare' >
+          <view class='course-share course-share-border'>
+            <image src='/img/course/share1.png'></image>
+            <text>分享</text>
+          </view>
+        </view>
+      </view>
+      <!--老师信息-->
+      <view class='class-teacher'>
+        <view class='teacher-info' wx:if="{{teacherInfo.status == 1}}">
+          <image class='class-img' wx:if="{{teacherInfo.img}}" src="{{'https:'+ teacherInfo.img}}"></image>
+          <text>{{teacherInfo.full_name}}</text>
+        </view>
+        <view class='student-num'>{{courseInfo.book_num}}人已预约</view>
+      </view>
+    </view>
+  </view>
+  <!--课程章节-->
+  <view class='course-auditions' wx:if="{{chapter.length>0}}">
+    <view class='auditions-name'>课程章节</view>
+    <scroll-view class="auditions-scroll" scroll-x="true" scroll-left="{{scrollLeft}}">
+      <block wx:for="{{chapter}}">
+        <view class='auditions-box' wx:if="{{userPhone}}"  bindtap='liveBroadcastJump' data-chapterstate="{{item.chapter_state}}" data-ccroomid="{{item.cc_roomid}}" data-id="{{item.id}}" data-startstampTime="{{item.start_stampTime}}" data-time="{{courseData.time}}">
+          <view class='auditions-box-top'>
+            <view class='auditions-num' wx:if="{{index<9}}">0{{index+1}}.</view>
+            <view class='auditions-num' wx:else>{{index+1}}.</view>
+            <view class='auditions-time'>         
+              <text>{{ filters.toStrings(item.start_time,5,7) }}月</text>
+              <text>{{ filters.toStrings(item.start_time,8,10) }}日</text>             
+              <text style='margin-left:20rpx;'>{{ filters.toStrings(item.start_time,11,16) }}</text>-
+              <text>{{ filters.toStrings(item.end_time,11,16) }}</text>
+            </view>
+          </view>
+          <view class='auditions-details'>
+            <view class='auditions-content'>{{item.title}}</view>
+            <text wx:if="{{item.chapter_state == '0'}}" class='auditions-details-font'>未开始</text>
+            <view wx:if="{{item.chapter_state == '1'}}" class='auditions-details-live'>
+              <image src='/img/course/live.png'></image>
+              <text>直播中</text>
+            </view>
+            <image src='/img/course/auditions.png' wx:if="{{item.chapter_state == '2'}}"></image>
+          </view>
+        </view>
+        <!--未绑定-->
+        <button  class='chapter-button' wx:if="{{!userPhone}}" data-liveState="{{item.chapter_state}}" data-book="true"  data-lookBackState="{{item.chapter_state}}" data-id="{{item.id}}"  open-type="getPhoneNumber"  bindgetphonenumber="getPhoneNumber">
+        <view class='auditions-box'>
+          <view class='auditions-box-top'>
+            <view class='auditions-num' wx:if="{{index<9}}">0{{index+1}}.</view>
+            <view class='auditions-num' wx:else>{{index+1}}.</view>
+            <view class='auditions-time'>         
+              <text>{{ filters.toStrings(item.start_time,5,7) }}月</text>
+              <text>{{ filters.toStrings(item.start_time,8,10) }}日</text>             
+              <text style='margin-left:20rpx;'>{{ filters.toStrings(item.start_time,11,16) }}</text>-
+              <text>{{ filters.toStrings(item.end_time,11,16) }}</text>
+            </view>
+          </view>
+          <view class='auditions-details'>
+            <view class='auditions-content'>{{item.title}}</view>
+            <text wx:if="{{item.chapter_state == '0'}}" class='auditions-details-font'>未开始</text>
+            <view wx:if="{{item.chapter_state == '1'}}" class='auditions-details-live'>
+              <image src='/img/course/live.png'></image>
+              <text>直播中</text>
+            </view>
+            <image src='/img/course/auditions.png' wx:if="{{item.chapter_state == '2'}}"></image>
+          </view>
+        </view>
+        
+        </button>
+
+      </block>
+    </scroll-view>
+  </view>
+  <!--课程介绍-->
+  <view class='class-introduce' wx:if="{{courseInfo.introduce}}">
+    <view class='auditions-name'>课程介绍</view>
+    <!-- <view>
+      课程介绍内容
+    </view> -->
+    <view class='course-about'>
+      <rich-text nodes="{{courseInfo.introduce}}"></rich-text>
+    </view>
+  </view>
+  <!--为您推荐-->
+  <view class="my-collection" wx:if="{{courseRecommend.length>0}}">
+    <view class='my-auditions-name'>为您推荐</view>
+    <navigator class="my-content" url="{{'/pages/course/course?courderId='+item.id}}" wx:for="{{courseRecommend}}">
+      <view class='my-content-title'>
+        <text class='my-content-icon'>{{courseInfo.keyWord}}</text>
+          {{item.goods_name}}
+      </view>
+      <view class='my-content-center'>
+        <view class='my-content-left'>
+            <text class='my-content-left'>{{item.course_count}}节课／共{{item.course_hour}}小时</text>
+        </view>
+      </view>
+      <view class='my-footer'>
+        <view class='my-footer-left'>
+            <text class='my-footer-left'>{{item.buy_number}}人已购买</text  >
+        </view>
+        <view class='my-footer-right'>
+            <text class='footer-right-icon'>¥ </text><text class='footer-right-money'>{{item.shop_price}}</text>
+        </view>
+      </view>
+    </navigator>
+  </view>
+</view>
+<!--页面底部（三种状态-立即观看+已预约+立即预约）-->
+<view class='class-sub'>
+  <!-- 立即观看 (直播全部完成+正在直播)-->
+  <view wx:if="{{liveState == '1' || lookBackState == '2'}}">
+    <button class='class-btn' wx:if="{{!userPhone}}" data-book="{{courseData.book}}" data-liveState="{{liveState}}" data-lookBackState="{{lookBackState}}" data-id=""  open-type="getPhoneNumber"  bindgetphonenumber="getPhoneNumber">立即观看</button>
+    <!-- 登录之后的立即观看-->
+    <view class='class-btn' wx:else bindtap="liveBroadcastJump" data-id="" data-book="{{courseData.book}}" data-liveState="{{liveState}}" data-lookBackState="{{lookBackState}}" >立即观看</view>
+  </view>
+  <!-- 直播未结束 -->
+  <view  wx:else>
+      <!-- 未预约 -->
+    <view wx:if="{{!courseData.book}}">
+      <button class='class-btn' wx:if="{{!userPhone && !courseData.book}}"  open-type="getPhoneNumber" data-liveState="{{liveState}}" data-book="{{courseData.book}}" data-lookBackState="{{lookBackState}}"  bindgetphonenumber="getPhoneNumber">立即预约</button>
+      <!-- 登录之后的预约-->
+      <form bindsubmit="appointmentFormSubmit" report-submit='true'  wx:if ="{{userPhone && !courseData.book}}">
+        <button form-type="submit" type="default" class='class-btn'>立即预约</button>
+      </form>
+    </view>
+    <!-- 已预约 -->
+    <view class='class-btn-gray' wx:else>已预约</view>
+  </view>
+</view>
+<!--底部弹出分享-->
+<view wx-if="{{showShare}}">
+  <view class='bg-drawer-sharing' bindtap='bindShowShare'></view>
+  <view class='bottom-sharing'>
+    <view class='sharing-bottom'>
+      <button open-type='share' class='course-collection' bindtap='bindShowShare' plain='true'>分享给好友</button>
+    </view>
+    <view class='sharing-img' bindtap='share'>生成图片</view>
+    <view class='sharing-cancel' bindtap='bindShowShare'>取消</view>
+  </view>
+</view>
+
+<!-- 画布大小按需定制 这里我按照背景图的尺寸定的  -->
+<canvas canvas-id="shareImg" style="width:613px;height:880px"></canvas>
+<!-- 预览区域  -->
+<view hidden='{{hidden}}' class='preview'>
+  <image src='{{prurl}}' mode='widthFix'></image>
+  <button type='primary' class='code-btn' bindtap='save'>保存图片</button>
+</view>
+
+
+  <!-- 手机发送验证码 -->
+  <view class="course-bg {{phoneState?'hide':'show'}}" >
+    <view class="user-phone">
+      <!-- 发送验证码 -->
+      <view class="{{phoneCodeState?'hide':'show'}}">
+        <view class='user-phone-top'>
+          <view>
+            <image src='/img/course/logo.png'></image>
+            <text class='user-phone-logo'>东方尚学</text>
+            <text>请求存取</text>
+          </view>
+          <image style='width:40rpx; height:40rpx;' src='/img/course/tips.png'  bindtap='bindPhoneCodeState' data-state="{{phoneCodeState}}"></image>
+        </view>
+        <view class='phone-confirm'>确认您的手机</view>
+        <form bindsubmit="formSubmit" class='phone-form'>
+            <input name="phone" type="number" maxlength='11' value="{{userPhone}}" class='phone-input' bindinput="getPhone" placeholder="请输入手机号" />
+            <view class='phone-code'>
+              <input name="code" type="number" maxlength='6' class='phone-code' placeholder="输入六位数验证码" />
+              <text wx:if="{{sendmsg}}" bindtap="sendmessg">{{getmsg}}</text> 
+              <text wx:else >{{getmsg}}</text> 
+            </view>
+            <!--首次收藏-->
+            <input name='goodsid' class='hide' value='{{courseInfo.id}}'></input>
+            <input name='state' class='hide' value='{{courseInfo.is_collect}}'></input>
+            <button class="phone-btn" form-type="submit">确认</button>
+        </form>
+      </view>
+      <!-- 友情提示 -->
+      <view class="phone-tips {{phoneCodeState?'show':'hide'}}" >
+        <view class='tips-img' bindtap='bindPhoneCodeState' data-state="{{phoneCodeState}}">
+          <image src='/img/course/arrow-left.png'></image>
+        </view>
+        <view class='tips-title'>第三方手机号授权说明</view>
+        <view class='tips-content'>请填写您本人使用的手机号，此手机号即为您登录东方尚学官网/APP的账号</view>
+      </view>
+    </view>
+  </view>

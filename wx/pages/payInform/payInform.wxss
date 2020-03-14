@@ -1,0 +1,54 @@
+
+page{
+  background: #fff;
+}
+.infor-out{
+  padding-top: 140rpx;
+}
+
+.infor{
+  width: 613rpx;
+  height: 813rpx;
+  margin: 0 auto;
+  position: relative;
+  font-size: 0;
+}
+.infor image{
+  width: 100%;
+  height: 100%;
+}
+.infor-box{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  z-index: 4;
+  width: 100%;
+  height: 530rpx;
+  padding: 0 60rpx;
+}
+.infor-msg{
+  font-size: 24rpx;
+  color: #111;
+  line-height: 40rpx;
+}
+
+.infor-msg2{
+  display: block;
+  padding-top: 40rpx;
+}
+
+.to-order-detail{
+  display: block;
+  background:linear-gradient(180deg,rgba(235,218,173,1) 0%,rgba(229,198,140,1) 100%);
+  border-radius:43rpx;
+  width: 360rpx;
+  height: 86rpx;
+  line-height: 86rpx;
+  text-align: center;
+  font-size: 32rpx;
+  margin: 40rpx auto 0;
+  color: #fff;
+}
+
+

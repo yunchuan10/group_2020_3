@@ -1,0 +1,36 @@
+/*顶部返回首页*/
+.headNavigation{
+  height: 110rpx;
+  width: 100%;
+  background: #fff;
+  position: fixed;
+  top: 0;
+}
+.headNavigation-flex{
+  display: flex;
+  align-items: center;
+  margin-left: 10rpx;
+  padding-bottom: 10rpx;
+}
+.headNavigationImg{
+  width: 50rpx;
+  height: 50rpx;
+  float: left
+}
+.headNavigationImg1{
+  width: 50rpx;
+  height: 50rpx;
+  margin-left: 20rpx;
+  float: left;
+}
+.headNavigationTitle{
+  font-size: 24rpx;
+  color: #000;
+  margin-left: 190rpx;
+  float: left;
+}
+
+.status-bar,.capsule-line{
+    width: 100%;
+    background: white;
+}

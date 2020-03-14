@@ -1,0 +1,20 @@
+<view class='infor-out'>
+
+  <view class='infor'>
+
+    <image src='/img/common/p1.jpg'></image>
+
+    <view class='infor-box'>
+      <view class='infor-msg'>
+        <text>您已成功购买东方尚学的课程，请在PC上打开我们的官网www.dongfangshangxue.com/mall使用手机号{{ telePhones }}登录，完善个人资料并签订合同！</text>
+        <text class='infor-msg2'>我们工作人员将会在14个工作日联系您，或者拨打我们的客服热线400-060-6080咨询！</text>
+      </view>
+
+      <!-- 我的订单 -->
+      <view class='to-order-detail' bindtap='goMyOrderDetail'>查看我的订单</view>
+
+    </view>
+  
+  </view>
+
+</view>

@@ -1,0 +1,57 @@
+
+<!--logo-->
+<view wx:if="{{userInfo == null || !userInfo.userPhone || !userInfo.userId }}" style="background:#fff;height: {{wxHeight}}px">
+  <!-- 微信授权认证 -->
+  <view wx:if="{{userInfo == null && !userInfo.nickName}}">
+    <image class="wx-img" src='/img/common/logo.png' ></image>
+    <button class="wx-btn" open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权登录</button>
+  </view>
+  <!--手机号未绑定-->
+  <view wx:if="{{userInfo.nickName && !userInfo.userPhone}}">
+    <image class="wx-img" src='/img/common/logo.png' ></image>
+    <button class="wx-btn" open-type="getPhoneNumber"  bindgetphonenumber="getPhoneNumber">绑定手机号</button>
+  </view>
+  <!--手机号已绑定,用户未绑定-->
+  <view wx:if="{{userInfo.userPhone && !userInfo.userId}}">
+    <image class="wx-img" src='/img/common/logo.png' ></image>  
+    <button class="wx-btn" bindtap="bindUserId">绑定手机号</button>
+  </view>
+</view>
+<!--绑定手机弹出框-->
+<view class="course-bg {{phoneState?'hide':'show'}}" >
+  <view class="user-phone">
+    <!-- 发送验证码 -->
+    <view class="{{phoneCodeState?'hide':'show'}}">
+      <view class='user-phone-top'>
+        <view>
+          <image src='/img/course/logo.png'></image>
+          <text class='user-phone-logo'>东方尚学</text>
+          <text>请求存取</text>
+        </view>
+        <image style='width:40rpx; height:40rpx;' src='/img/course/tips.png'  bindtap='bindPhoneCodeState' data-state="{{phoneCodeState}}"></image>
+      </view>
+      <view class='phone-confirm'>确认您的手机</view>
+      <form bindsubmit="formSubmit" class='phone-form'>
+          <input name="phone" type="number" maxlength='11' value="{{userPhone}}" class='phone-input' bindinput="getPhone" placeholder="请输入手机号" />
+          <view class='phone-code'>
+            <input name="code" type="number" maxlength='6' class='phone-code' placeholder="输入六位数验证码" />
+            <text wx:if="{{sendmsg}}" bindtap="sendmessg">{{getmsg}}</text> 
+            <text wx:else >{{getmsg}}</text> 
+          </view>
+          <!--首次收藏-->
+          <input name='goodsid' class='hide' value='{{courseInfo.id}}'></input>
+          <input name='state' class='hide' value='{{courseInfo.is_collect}}'></input>
+          <button class="phone-btn" bindtap="bindPhonePopup">取消</button>
+          <button class="phone-btn phone-btn-right" form-type="submit">确认</button>
+      </form>
+    </view>
+    <!-- 友情提示 -->
+    <view class="phone-tips {{phoneCodeState?'show':'hide'}}" >
+      <view class='tips-img' bindtap='bindPhoneCodeState' data-state="{{phoneCodeState}}">
+        <image src='/img/course/arrow-left.png'></image>
+      </view>
+      <view class='tips-title'>第三方手机号授权说明</view>
+      <view class='tips-content'>请填写您本人使用的手机号，此手机号即为您登录东方尚学官网/APP的账号</view>
+    </view>
+  </view>
+</view>

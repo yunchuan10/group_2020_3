@@ -1,0 +1,50 @@
+
+<view class='audition-contain'>
+
+  <!-- 视频 -->
+  <view class='video-c'>
+    <video id="myVideo" autoplay='{{true}}' enable-play-gesture='{{true}}' controls='{{true}}' src="{{currentSrc}}"></video>
+  </view>
+
+  <!-- 课程列表 -->
+  <view class='course-list'>
+
+    <view class='list-head {{slide_type!=1? "slide": ""}}'>
+      <view class='list-hl'>
+        <image src='/img/course/course_chapter.png'></image>
+        <text class='hl-title'>试听目录</text>
+        <text class='hl-count'>共{{list.length}}节</text>
+      </view>
+      <view class='list-hr' bindtap='listSlide' wx:if='{{slide_type==1}}'>
+        <text>收起</text>
+        <image src='/img/course/chapter_up.png'></image>
+      </view>
+      <view class='list-hr' bindtap='listSlide' wx:else>
+        <text>展开</text>
+        <image src='/img/course/chapter_open.png'></image>
+      </view>
+    </view>
+
+    <!-- 列表 -->
+    <view class='list-c {{slide_type!=1?"list-slide":""}}' >
+
+      <view bindtap='listCheck' data-index='{{index}}' wx:for='{{list}}' class='{{index==currentIndex? "sec": ""}}'>
+        <view class='item-l' wx:if="{{(index+1)<10}}">{{'0'+(index+1)}}</view>
+        <view class='item-l' wx:else>{{(index+1)}}</view>
+        <view class='item-c'>
+          <text class='item-t'>{{item.content}}</text>
+          <!-- <text class='item-time'>时长：35'52"</text> -->
+        </view>
+        <view class='item-r'>
+          <image class='line-icon' src='/img/common/i9.png'></image>
+          <text>试看中</text>
+          <image class='icon' src='/img/common/i10.png'></image>
+        </view>
+      </view>
+
+    </view>
+
+  </view>
+
+</view>
+

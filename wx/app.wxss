@@ -1,0 +1,97 @@
+/**app.wxss**/
+/* 公共的样式--框架 */
+navigator:hover{background: #fff;}
+page{
+  background-color: #F5F5F5;
+  max-height: 100%;
+  font-family:PingFangSC-Medium,-apple-system-font,Helvetica Neue,Helvetica,sans-serif; 
+  font-size:27rpx;
+  color:#111;
+  line-height:1.2;
+}
+/*距离外侧距离*/
+.c-padding{
+  padding: 0 40rpx;
+}
+/*隐藏和显示*/
+.show{
+  display: block;
+}
+.hide{
+  display: none;
+}
+
+
+/*黑色背景层*/
+.bg-drawer{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 8000;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+}
+/* 超出... */
+.ellipsis{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+}
+.ellipsis2{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+/** 隐藏滚动条*/
+/* ::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent;
+} */
+/* 按钮可点击状态 */
+page .button-able{
+  border: none;
+  border-color: #2C8CFF;
+  background:linear-gradient(180deg,#19B3FF 0%,#2A94FF 100%);
+}
+
+button{
+  padding: 0;
+}
+.bott-line{
+  font-size: 27rpx;
+  text-align: center;
+  padding:  40rpx 0;
+  /* background: #fff; */
+  color: #999;
+}
+/* 缺省页面 */
+.appointment-default-page{
+  padding: 80rpx 0;
+}
+.appointment-default-content{
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column
+}
+.appointment-default-text{
+  font-size:24rpx;
+  color:rgba(153,153,153,1);
+  line-height:36rpx;
+  text-align: center;
+  display: block
+}
+.appointment-default-img{
+  width: 267rpx;
+  height: 267rpx;
+  margin: 0 auto
+}
+/*公开课隐藏*/
+.c-open-display{
+  display: none;
+}

@@ -1,0 +1,125 @@
+<!--pages/myOrderDetail/myOrderDetail.wxml-->
+<view class='my-detail'>
+    <!-- 内容区域 -->
+    <view class='detail-content'>
+        <view class='detail-content-top'>
+            <!-- <view class='detail-top-left'>
+                <image class='detail-top-img' src='/img/my/blue_seal.png'></image>
+            </view> -->
+            <view class='detail-top-right'>
+                <view class='detail-top-title'>{{ orderData.goods[0].goods_name }}</view>
+                <view class='detail-top-content'>
+                  <text class='detail-top-price'>¥ {{ orderData.goods[0].goods_price }}</text>
+                </view>
+            </view>
+        </view>
+        <!-- 虚线部分-1 -->
+        <view class='detail-line-top'>
+            <view class='detail-circle_left'></view>
+            <view class='detail-line_1'></view>
+            <view class='detail-circle_right'></view>
+        </view>
+        <view class='detail-content-center'>
+            <text class='detail-center-message'>订单信息</text>
+            <view class='detail-center-title'>
+                <text class='detail-center-left'>订单编号</text>
+                <text class='detail-center-right'>{{ orderData.order_no }}</text>
+            </view>
+            <view class='detail-center-title'>
+                <text class='detail-center-left'>下单时间</text>
+                <text class='detail-center-right'>{{ orderData.order_time }}</text>
+            </view>
+            <view class='detail-center-title' wx:if="{{orderData.coupon_sn}}">
+                <text class='detail-center-left'>优惠码</text>
+                <text class='detail-center-right'>{{ orderData.coupon_sn }}</text>
+            </view>
+            <view class='detail-center-title'>
+                <text class='detail-center-left'>订单状态</text>
+                <text class='detail-right-type'>{{ orderData.order_status_name }}</text>
+            </view>
+            <!-- 暂时隐藏-->
+            <!-- <view class='order-footer-right' wx:if="{{orderData.order_status == 0}}">
+              <view class='order-footer-cancel order-btn' bindtap='cancleOrder'  data-id="{{orderData.order_id}}">取消订单</view>
+              <view class='order-footer-pay order-btn'  data-order-no="{{ orderData.order_no }}" bindtap='immediatePayment'>立即支付</view>  
+            </view> -->
+            <!-- 根据条件显示/隐藏 是否已支付 -->
+            <view class='detail-center-seal' wx:if="{{ order_status == 1 }}">
+                <view class='detail-center-btn' data-order_id="{{ orderData.order_id }}" bindtap='afterSale'>申请售后</view>
+            </view>
+        </view>
+        <!-- 根据条件显示/隐藏 是否已支付-->
+        <view wx:if="{{ order_status == 1 }}">
+          <!-- 虚线部分-2 -->
+          <view class='detail-line-top'>
+              <view class='detail-circle_left'></view>
+              <view class='detail-line_1'></view>
+              <view class='detail-circle_right'></view>
+          </view>
+          <!-- 内容底部 -->
+          <view class='detail-content-bottom'>
+              <text class='detail-bottom-pay'>支付信息</text>
+              <view class='detail-bottom-title'>
+                  <text class='detail-bottom-left'>支付方式</text>
+                  <text class='detail-bottom-right'>{{ orderData.payment_type }}</text>
+              </view>
+              <view class='detail-bottom-title'>
+                  <text class='detail-bottom-left'>支付时间</text>
+                  <text class='detail-bottom-right'>{{ orderData.pay_time }}</text>
+              </view>
+              <view class='detail-bottom-title'>
+                  <text class='detail-bottom-left'>原价</text>
+                  <text class='detail-bottom-right'>￥ {{ orderData.goods[0].goods_price }}</text>
+              </view>
+              <view class='detail-bottom-title'>
+                  <text class='detail-bottom-left'>优惠券</text>
+                  <text class='detail-bottom-right'>￥ {{ orderData.discount_amount }}</text>
+              </view>
+              <view class='detail-bottom-title'>
+                  <text class='detail-bottom-left'>实付价</text>
+                  <text class='detail-right-red'>￥ {{ orderData.amount }}</text>
+              </view>
+              <text class='detail-bottom-notification' bindtap='studentNotification'>查看学员告知书 > </text>
+          </view>
+          
+            <!-- 蓝色印章 -->
+            <view class='detail-bottom-seal' >
+                <image class='detail-seal-img' src='/img/my/blue_seal.png'></image>
+            </view>
+          </view>
+          <view>
+              <!-- 虚线部分-1 -->
+              <view class='detail-line-top' wx:if="{{orderData.district}}">
+                  <view class='detail-circle_left'></view>
+                  <view class='detail-line_1'></view>
+                  <view class='detail-circle_right'></view>
+              </view>
+              <view class='detail-content-bottom'  wx:if="{{orderData.district}}">
+                  <text class='detail-bottom-pay'>收货信息</text>
+                  <view class='detail-bottom-title'>
+                      <text class='detail-bottom-left'>快递单号</text>
+                      <text class='detail-bottom-right' wx:if="{{ orderData.expres }}">{{ orderData.express }}</text>
+                  </view>
+                  <view class='detail-bottom-title'>
+                      <text class='detail-bottom-left'>收货人</text>
+                      <text class='detail-bottom-right detail-bottom-right-tit'>{{ orderData.consignee }}</text>
+                  </view>
+                  <view class='detail-bottom-title'>
+                      <text class='detail-bottom-left'>手机号</text>
+                      <text class='detail-bottom-right detail-bottom-right-tit'>{{ orderData.tel }}</text>
+                  </view>
+                  <view class='detail-bottom-title'>
+                      <text class='detail-bottom-left'>所在地区</text>
+                      <text class='detail-bottom-right detail-bottom-right-tit'>{{ orderData.district }}</text>
+                  </view>
+                  <view class='detail-bottom-title'>
+                      <text class='detail-bottom-left'>详细地址</text>
+                      <text class='detail-bottom-right detail-bottom-right-tit '>{{ orderData.address }}</text>
+                  </view>
+              </view>
+                <!-- 蓝色印章 -->
+                <view class='detail-bottom-seal' >
+                    <image class='detail-seal-img' src='/img/my/blue_seal.png'></image>
+                </view>
+          </view>
+    </view>
+</view>

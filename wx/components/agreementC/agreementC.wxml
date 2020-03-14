@@ -1,0 +1,44 @@
+<!-- 协议 -->
+<view class='agreement-c' wx-if="{{tab!=-1}}">
+
+    <block  wx:for="{{agreement}}" wx:key="{{index}}">
+      <view class="a-section" wx-if="{{tab==index}}">
+          <view class='h2'> <image wx-if="{{index}}" style="left:40rpx;" data-back="1" bindtap="setTab" src="/img/common/navLeft.png"></image>服务协议</view>
+          <view class="s-contain">
+              <rich-text nodes="{{item.content||''}}"></rich-text>
+          </view>
+          <view class="alre-red" data-i="{{index}}" bindtap='setSec'>
+              <view class="{{item.sec?'agree-sec':''}}"><image src="/img/common/i12.png"></image></view> 我已阅读并同意上述协议
+          </view>
+          <view class="{{item.sec?'sec agree-next':'agree-next'}}" data-i="{{index}}" bindtap="setTab">下一步</view>
+      </view>
+    </block>
+    <!-- 完善信息 -->
+    <view class="a-section last-agree" wx-if="{{tab>=agreement.length}}">
+        <view class='h2'> <image wx-if="{{agreement.length>0}}" src="/img/common/navLeft.png" data-back="1" bindtap="setTab"></image>完善协议信息 </view>
+        <view class="l-text">为保障我们更好地为您服务并提供相应的课程观看，请正确填写您的个人信息，来完善并签订东方尚学的服务协议</view>
+
+        <view class='list-c'>
+            <view class='list-i'>
+                <view><view class="list-span">*</view>真实姓名:</view> <input type="text" maxlength="10" bindinput="sunCheck" value='{{real_name}}' data-name='real_name' placeholder="请填写真实姓名"/>
+            </view>
+            <view class='list-i'>
+                <view><view class="list-span">*</view>手机号码:</view> <input maxlength="11" type="text" bindinput="sunCheck" value='{{phone}}' data-name='phone' placeholder="请填写手机号码"/>
+            </view>
+            <view class='list-i'>
+                <view><view class="list-span">*</view>手机验证码:</view> 
+                <input style="width: 50%;" type="text" maxlength="6" bindinput="sunCheck" value='{{code}}' data-name='code' placeholder="请填写验证码"/>
+                <text class="code-but" wx:if="{{!isSms}}" bindtap="getSms">获取验证码</text> 
+                <text class="code-but" wx:else >{{smsCode}}s</text>
+            </view>
+            <view class='list-i'>
+                <view><view class="list-span">*</view>身份证号:</view> <input  type="text" bindinput="sunCheck" value='{{id_number}}' data-name='id_number' placeholder="请填写身份证号"/>
+            </view>
+        </view>
+
+        <view class="err-text"><view wx-if="{{subTab}}">{{errMsg}}</view></view>
+        <view class="agree-next" bindtap='agreeSub'>提交</view>
+
+    </view>
+
+</view>

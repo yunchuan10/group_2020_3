@@ -1,0 +1,14 @@
+<!-- <video style='width:100%;height:100%;' id="player" class="player-class" src="{{playerUrl}}" show-center-play-btn="{{showCenterPlayBtn}}"
+       initial-time="initialTime" autoplay="{{autoplay}}" duration="{{duration}}"
+       controls="{{controls}}" loop="{{loop}}" muted="{{muted}}" objectFit="{{objectFit}}" bindplay="bindPlay"
+       bindpause="bindPause" bindended="bindEnded" bindtimeupdate="bindTimeupdate"
+       bindwaiting="bindWaiting" bindfullscreenchange="bindFullscreenchange" binderror="bindError" enable-progress-gesture="{{enableProgressGesture}}">
+    <slot></slot>
+</video> -->
+
+<video style='width:100%;height:100%;' id="player" class="player-class" src="{{playerUrl}}" 
+      autoplay="true"  bindplay="bindPlay" controls='{{false}}'
+      bindpause="bindPause" bindended="bindEnded" bindtimeupdate="bindTimeupdate"
+      bindwaiting="bindWaiting" binderror="bindError" >
+</video>
+

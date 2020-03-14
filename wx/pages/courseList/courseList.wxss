@@ -1,0 +1,236 @@
+/* pages/courseList/courseList.wxss */
+page{
+  min-height: 100%;
+  background: #fff;
+}
+.list-out{
+  /* margin-top: 20rpx; */
+  min-height: 100%;
+  box-sizing: border-box;
+  background: #fff;
+}
+.nav-fixed .list-selects{
+  position: fixed;
+  z-index: 6;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100rpx;
+  left: 0;
+  top: 0rpx;
+}
+.nav-fixed .list-selects::after{
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: -22rpx;
+  background: #EFEFF4;
+  height: 22rpx;
+}
+
+.list-selects{
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 100rpx;
+  padding: 0 30rpx;
+  background: #fff;
+  word-break: break-all;
+}
+.list-selects view{
+  height: 95rpx;
+  line-height: 96rpx;
+  margin: 2rpx 24rpx;
+  font-size: 27rpx;
+  color: #555;
+  position: relative;
+  z-index: 2;
+  word-break: break-all;
+  display: inline-block;
+  text-align: center;
+}
+.list-selects view.sec{
+  /* padding-bottom: 0; */
+  color: #2C8CFF;
+  display: inline-block;
+   box-sizing: border-box;
+  /* border-bottom: 2rpx solid #2C8CFF; */
+}
+.list-selects view.sec::after{
+  content: '';
+  display: block;
+  position: absolute;
+  z-index: 2;
+  left: 5rpx;
+  bottom: 6rpx;
+  width: 100%;
+  height: 2px;
+  background: #2C8CFF;
+}
+
+
+/* 列表循环 */
+.my-collection{
+  padding: 20rpx 40rpx 0;
+}
+.my-content{
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  padding: 40rpx  30rpx 20rpx 30rpx;
+  box-shadow: 0 4rpx 32rpx 0 rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  background: #fff;
+  margin-bottom: 40rpx;
+}
+.my-collection .my-content+.my-content{
+  border-top: 1px solid #EAEAEA;
+}
+.my-content-content{
+  height:40rpx;
+  line-height: 46rpx;
+  margin-left: 15rpx;
+}
+.my-content-icon{
+  /* width:68rpx; */
+  padding: 0 18rpx;
+  height:40rpx;
+  line-height: 44rpx!important;
+  text-align: center;
+  display: inline-block;
+  font-size: 24rpx;
+  color: #999;
+  background:rgba(222,222,222,0.3);
+  /* border:1rpx solid #DEDEDE; */
+  border-radius:5rpx;
+  position: relative;
+  top: -4rpx;
+  margin-left: 5rpx;
+  margin-right: 10rpx;
+}
+.my-content-name{
+  font-weight: bold;
+  margin: 20rpx 0 20rpx 0;
+  /* 强制两行显示 */
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  font-size: 36rpx;
+}
+.my-content-center{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20rpx ;
+}
+.my-content-left{
+  font-size:24rpx ;
+  color: #999;
+  line-height:40rpx ;
+  height: 40rpx;
+
+}
+.content-right-icon{
+  font-size:24rpx ;
+  color: #555;
+  line-height:40rpx ;
+  height: 40rpx;
+  vertical-align: bottom;
+  text-decoration: line-through;
+  text-decoration-color: #555;
+  margin-right: 5rpx;
+}
+.content-right-money{
+  font-size:24rpx ;
+  color: #555;
+  text-decoration: line-through;
+  text-decoration-color: #555
+}
+.my-content-right{
+  text-decoration: line-through;
+  text-decoration-color: #555;
+}
+.my-footer{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40rpx;
+  /* border-top: 1rpx solid rgba(221,221,221,1); */
+  min-height: 80rpx;
+  align-items: center;
+}
+.my-footer-left{
+  font-size:24rpx ;
+  color: #999;
+  line-height:40rpx ;
+  min-height: 40rpx;
+  margin-left: 2rpx;
+  display: flex
+}
+.my-footer-teacher{
+  display: flex;
+  flex-direction: column;
+  /* margin-right: 40rpx; */
+  justify-content: space-between;
+  margin-right: 20rpx
+  
+}
+.my-footer-img{
+  width: 53rpx;
+  height: 53rpx;
+  border-radius: 50%;
+  margin-bottom: 10rpx;
+  align-self: center
+}
+.my-teacher-name{
+  max-width: 120rpx;
+  overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+  text-align: center
+}
+.my-footer-right{
+  color: #111;
+  display: flex;
+  flex-direction: column
+}
+.my-footer-tops{
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0rpx;
+  margin-top: 15rpx
+}
+.footer-right-icon{
+  font-size: 24rpx;
+  height: 30rpx;
+  line-height: 70rpx;
+  color: #FF7549;
+  font-weight: 700;
+  margin-right: 10rpx;
+}
+.footer-right-money{
+  font-size: 50rpx;
+  height:50rpx ;
+  line-height:50rpx;
+  color: #FF7549;
+  font-weight: 700
+}
+
+
+
+.bott-line{
+  font-size: 27rpx;
+  text-align: center;
+  padding:  40rpx 0;
+  background: #fff;
+  color: #999;
+}
+
+.scroll-view{
+  white-space: nowrap;
+  width: 100%;
+  box-sizing: border-box;
+  height: 100%;
+}

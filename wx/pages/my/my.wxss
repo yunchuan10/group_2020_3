@@ -1,0 +1,139 @@
+
+/* 自己的css */
+.my-page{
+  display: block
+}
+.my-page-bd{
+   display: block
+}
+/* 头部头像区域 */
+.my-page-top{
+  background: #fff;
+  padding:90rpx 40rpx 90rpx 40rpx;
+}
+.my-page-top-content{
+  display:flex;
+}
+.my-page-left{
+  width:120rpx;
+  height:120rpx ;
+  border-radius: 50%;
+  margin-right: 40rpx;
+  overflow: hidden
+}
+.my-page-img{
+  width: 100%;
+  height: 100%;
+}
+.my-page-right{
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  justify-content: center;
+}
+.my-page-right-title{
+  height:60rpx;
+  line-height: 60rpx;
+  font-size:43rpx;
+  font-weight: 800;
+  color: #494949;
+  margin:0 20rpx 0 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+.my-page-right-phone{
+  font-size:32rpx;
+  color: #555555;
+  margin-top: 7rpx
+}
+
+
+/* 中部列表部分 */
+.my-page-list{
+  margin-top: 0
+}
+
+.my-page-list-cells{
+  position:relative;
+  margin-top:30rpx;
+  line-height:60rpx;
+  font-size:36rpx;
+  color: #555
+}
+
+navigator {
+	height:auto;
+	width:auto;
+	display:block;
+
+}
+.my-page-list-access{
+  padding: 0 0 0 40rpx;
+  position:relative;
+  display:flex;
+  align-items:center;
+  background: #fff;
+}
+.my-page-list-active{
+  background: #ddd;
+}
+.my-page-list-hd{
+  display: block;
+  margin-right: 28rpx;
+}
+.my-page-list-img{
+  margin-right:10rpx;
+  vertical-align: middle;
+  width:60rpx;
+  height: 60rpx;
+}
+.my-page-box{
+  border-bottom:1rpx solid #DDD;
+  width: 88%; 
+  display:flex; 
+  height:140rpx;
+  align-items: center;
+}
+.my-page-list-bd{
+  height: 40rpx;
+  flex:1;
+  font-size: 32rpx;
+  line-height: 48rpx;
+}
+.my-page-list-arrow{
+  padding-right:40rpx;
+  position:relative;
+  text-align: right;
+}
+.my-page-list-arrow-right{
+  width:12rpx ;
+  height: 23rpx;
+}
+.my-page-list-access-customer{
+  /* margin-top: 20rpx */
+}
+.my-page-list-order-top{
+  /* margin-top: 3rpx */
+}
+.my-page-list-order-bottom{
+  /* margin-bottom: 3rpx */
+}
+
+/* 按钮自定义 */
+.my_order_btn{
+  background: #fff!important;
+  text-align: left!important;
+  padding-left: 0!important;
+  padding-right: 0!important;
+  font-size: 32rpx!important;
+  line-height: 45rpx!important;
+  position: inherit!important;
+  color: #555!important; 
+}
+.my_order_btn::after{
+  border: none
+}
+
+

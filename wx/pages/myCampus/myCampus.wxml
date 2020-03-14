@@ -1,0 +1,23 @@
+<!-- 授权弹框 -->
+<!-- <auth-setting userInfo ="{{userInfo}}" bind:myevent="getLocation"></auth-setting> -->
+<!--pages/myCampus/myCampus.wxml
+<view class='my-campus' wx:if="{{userInfo.nickName && userInfo.userPhone}}">-->
+<view class='my-campus'>
+  <wxs module="filters" src="../../utils/toFixed.wxs"></wxs>
+  <view class='campus-content'>
+    <!-- 循环遍历得到各个校区 -->
+    <view class='campus-content-wrap' wx:for-items="{{ school_campus }}" wx:key="{{ item.id}}"  data-id="{{item.id}}" catchtap="catchMyCampus">
+        <view class='campus-box-image' style="background:#EFEFF4 url('{{item.main_img}}') no-repeat  center center / contain">
+          <!-- <image class='campus-image' mode='widthFix' src="{{ item.main_img }}"></image> -->
+        </view>
+        <view class='campus-address'>{{ item.campus_name }}</view>
+        <view class='campus-box-content'>
+          <view class='campus-box-title'>{{ item.address }}</view>
+          <view class='campus-box-right'>
+            <image class='campus-box-i' src="/img/myCampus/distance_icon.png"></image>
+            <text class='campus-box-km'>{{ filters.toFix(item.distance) }}</text>
+          </view>
+        </view>
+    </view>
+  </view>
+</view>

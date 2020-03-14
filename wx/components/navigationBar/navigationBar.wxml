@@ -1,0 +1,20 @@
+<!-- 授权认证 -->
+<!-- <view class='headNavigation'>
+  <view class='headNavigation-flex'>
+    <image class='headNavigationImg' bindtap="bindReturnPage" src='/img/common/navLeft.png'></image>
+    <image class='headNavigationImg1' bindtap="bindJumpIndex" src='/img/common/navindex.png'></image> 
+    <view class='headNavigationTitle'>课程详情</view>
+  </view>
+</view> -->
+  <view class='headNavigation'>
+        <view class="status-bar" style="height: {{(statusBarHeight / pixelRate) + 'rpx'}}"></view>
+
+        <view class="capsule-line" style="height: {{(capsuleHeight / pixelRate) + 'rpx'}};line-height: {{(capsuleHeight / pixelRate) + 'rpx'}}">
+            
+              <image class='headNavigationImg' bindtap="bindReturnPage" src='/img/common/navLeft.png'></image>
+              <image class='headNavigationImg1' bindtap="bindJumpIndex" src='/img/common/navindex.png'></image> 
+              <view class='headNavigationTitle'>课程详情</view>
+      
+        </view>
+  </view>
+

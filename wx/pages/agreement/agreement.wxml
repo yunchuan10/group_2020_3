@@ -1,0 +1,38 @@
+<view class='agree-contain'>
+  <scroll-view class='scroll-box' scroll-y="{{true}}">
+    <view class="view-item">
+      <rich-text wx:if="{{agreementData.content}}" nodes="{{agreementData.content}}"></rich-text>
+      <text wx:else>暂无服务协议</text>
+    </view>
+  </scroll-view>
+  <!-- 验证手机号码 -->
+  <form class='ph-form' bindsubmit="formSubmit">
+    <view class='form-tip'>
+      请填写您本人使用的手机号，此手机号即为您登录东方尚学官网/APP的账号，未注册用户将会为您自动注册
+    </view>
+    <view class='ph-inputs'>
+      <view class='ph-item ph-item-bord'>
+        <image class='ph-item-l' src='/img/common/i2.png'></image>
+        <view class='ph-item-c'>
+          <input type="number" name="phone" maxlength='11' disabled="{{userId?true:false}}" value="{{inputPhone}}" bindinput="getPhone" placeholder='请输入手机号码'></input>
+        </view>
+        <icon type="clear" size="18" color="" wx:if="{{!userId}}" bindtap='delInputPhone'/>
+      </view>
+      <!-- 验证码 -->
+      <view class='ph-item'>
+        <image class='ph-item-l' src='/img/common/i3.png'></image>
+        <view class='ph-item-c'>
+          <input type="number" name="code" maxlength='6' bindinput="getCode" placeholder='请输入手机验证码'></input>
+        </view>
+        <view class='ph-item-r1' wx:if="{{sendmsg}}" bindtap="sendmessg">{{getmsg}}</view> 
+        <view class='ph-item-r1' wx:else >{{getmsg}}</view> 
+      </view>
+    </view>
+    <!-- 提交支付 -->
+    <view class='ph-sub'>
+      <button wx:if="{{payState}}" class='ph-btn button-able' form-type="submit">我已阅读并同意，去支付</button>
+      <button wx:else class='ph-btn' disabled="{{!payState}}" form-type="submit" >我已阅读并同意，去支付</button>
+    </view>
+  </form>
+
+</view>

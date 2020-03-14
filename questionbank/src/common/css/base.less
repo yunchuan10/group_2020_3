@@ -1,0 +1,381 @@
+
+// 公共变量
+@base:#666;
+@base1: #2C8CFF;
+@base2: #fff;
+
+.bc_base{
+    background: @base;
+}
+
+.c_base{
+    color: @base;
+}
+
+.bc_base1{
+    background: @base1;
+}
+
+.c_base1{
+    color: @base1;
+}
+
+.bc_base2{
+    background: @base2;
+}
+
+.c_base2{
+    color: @base2;
+}
+
+
+
+// reset样式
+/**
+ * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
+ * http://cssreset.com
+ */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video, input {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-weight: normal;
+    vertical-align: baseline;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+
+ /* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, menu, nav, section {
+    display: block;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* custom */
+a{
+    color: @base;
+    text-decoration: none;
+    -webkit-backface-visibility: hidden;
+}
+
+li {
+    list-style: none;
+}
+
+html, body {
+    touch-action: none;
+    background: #f4f4f4;
+    width: 100%;
+    height: 100%;
+    -webkit-overflow-scrolling : touch;
+    font-family: "Arial","PingFang SC","Microsoft YaHei","SimSun","sans-serif";
+}
+
+body{
+    font-size: 14px;
+    color: @base;
+}
+.w1200{
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.pdtype{
+    padding: 15px;
+}
+.body_c{
+//  width: 100%;
+    padding: 40px;
+    padding-bottom: 80px;
+    position: relative;
+    top: 80px;
+}
+//左边宽度
+.left-940{
+    width: 880px;
+    background: #fff;
+    display: inline-block;
+}
+//序号样式
+.nums {
+    float: left;
+    display: inline-block;
+    min-width: 40px;
+    text-align: center;
+    padding: 5px 0;
+    span{
+        display: inline-block;
+        padding: 0 5px;
+        background: #ddd;
+        border-radius: 3px;
+        margin-right: 5px;
+    }
+}
+//上下margin
+.mbt20{
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+//文字缩进
+.textindent_c{
+    text-indent: 40px;
+}
+.label {
+    margin-right: 5px;
+    background: #e4e7e8;
+    color: #666;
+    padding: 2px 5px;
+    font-size: 12px;
+    font-weight: normal;
+    display: inline;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+.content_pl40{
+    line-height: 25px;
+    font-size: 16px;
+    padding-left: 40px;
+}
+.check_content{
+    display: inline-block;
+    max-width: 100%;
+    font-weight: normal;
+    color: #666;
+    word-break: break-all;
+    font-size: 14px;
+}
+.check_radio_li{
+    position: relative;
+    padding: 5px 0 5px 40px;
+    line-height: 23px;
+}
+//选择题型
+.label_c{
+    display: block;
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin-right: 10px;
+    cursor: pointer;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+}
+
+//多选题
+.unselect_checked{
+    background-image: url(../../common/img/blue.png)!important;
+    background-position: -124px 0px;
+}
+.select_checked{
+    background-image: url(../../common/img/blue.png)!important;
+    background-position: -124px -20px;
+    /*background-size: contain;*/
+   /*background: #f00;*/
+}
+//单选题
+.unselect_radio{
+    background-image: url(../../common/img/blue.png)!important;
+    background-position: -96px 0px;
+}
+.select_radio{
+    background-image: url(../../common/img/blue.png)!important;
+    background-position: -96px -20px;
+    /*background-size: contain;*/
+   /*background: #f00;*/
+}
+
+//解析中单选的状态
+.select_green{
+    background-image: url(../../common/img/blue.png)!important;
+    background-position: -96px -20px;
+}
+.select_red{
+    background-image: url(../../common/img/blue.png)!important;
+    background-position: 0px -55px;
+}
+.select_border_green{
+    background-image: url(../../common/img/blue.png)!important;
+    background-position: -96px 0px;
+}
+.select_default{
+    background-image: url(../../common/img/blue.png)!important;
+    background-position: -96px 0px;
+}
+//解析中多选的状态
+.select_green_check{
+    background-image: url(../../common/img/blue.png)!important;
+    background-position: -96px -20px;
+}
+.select_red_check{
+    background-image: url(../../common/img/blue.png)!important;
+    background-position: 0px -85px;
+}
+.select_border_green_check{
+    background-image: url(../../common/img/blue.png)!important;
+    background-position: -124px 0px;
+}
+.select_default_check{
+    background-image: url(../../common/img/blue.png)!important;
+    background-position: -124px 0px;
+}
+//解析中填空样式
+.form-inline{
+    overflow: hidden;
+    padding-bottom: 10px;
+    line-height: 25px;
+    span{
+        float: left;
+        display: block;
+        padding-right: 10px;
+        text-align: right;
+        font-weight: normal;
+    }
+    ul{
+        margin-left: 80px;
+    }
+}
+
+
+//填空题css
+.iptxt-180 {
+    width: 180px;
+}
+.iptxt {
+    padding: 10px;
+    line-height: 20px;
+    color: #666;
+    font-family: "微软雅黑";
+    border: 1px solid #eaedf1;
+    outline: none;
+}
+//提交提示语
+.toast_c {
+    width: 20%;
+    line-height: 45px;
+    background: #313131;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    border-bottom: 1px solid #cccccc;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 999999;
+}
+//单选题 类型
+.answer_c{
+    margin-top: 15px;
+    padding: 15px 0 0 40px;
+    line-height: 25px;
+    color: #8d8d8d;
+    border-top: 1px dashed #eaedf1;
+    .num {
+        font-size: 30px;
+        color: #26c65d;
+    }
+}
+
+        
+
+// 带头部的样式
+.out_contain{
+    height: 100%;
+    box-sizing: border-box;
+    padding-top: 90px;
+    overflow: hidden!important;
+}
+
+// 带上下题切换的
+.check_contain{
+    height: 100%;
+    box-sizing: border-box;
+}
+
+// 不带上下题切换的
+.check_contain_not_footer{
+    height: 100%;
+    box-sizing: border-box;
+    padding-bottom: 0!important;
+}
+
+// 内容带试卷头部
+.pt_82{
+    height: 100%;
+    box-sizing: border-box;
+    padding-top: 82px;
+    position: relative;
+}
+
+// 提示fix框
+.tip_fix{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,0.6);
+}
+
+
+
+
+
+
+
+
+//公共样式类
+.clear{
+    &:after{
+        content:"";
+        display:block;
+        clear:both;
+        visibility: hidden;
+    }
+}
+.hide{display: none;}
+.ellipsis{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis;
+}
+
+.c_padding(){
+    padding: 0 30px;
+}
+
+.c_padding{
+    .c_padding()
+}
+
+
+
+// 默认加webkit前缀
+.css-prefix(@property,@value){
+    -webkit-@{property}:@value;
+    @{property}:@value;
+}
+
+
+

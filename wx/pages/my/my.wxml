@@ -1,0 +1,94 @@
+
+<!-- 授权弹框 -->
+<auth-setting userInfo ="{{userInfo}}" bind:myevent="personMessage"></auth-setting>
+<!-- <auth-setting  bind:myevent="personMessage"></auth-setting> -->
+<!-- 订单/收藏/客服/预约 区域 -->
+<view class="my-page" wx:if="{{userInfo!=null && userInfo.nickName && userInfo.userPhone && userInfo.userId}}">
+    <view class="my-page-bd">
+        <view class='my-page-top'>
+            <view class='my-page-top-content'>
+                <view class='my-page-left' wx:if="{{userInfo.avatarUrl}}">
+                    <image class='my-page-img' src="{{ userInfo.avatarUrl }}"></image>
+                    <!-- <open-data type="userAvatarUrl" class="my-page-img"></open-data> -->
+                </view>
+                <view class='my-page-right'>
+                    <text class='my-page-right-title'>{{ userInfo.nickName }}</text>
+                    <!-- <open-data type="userNickName" class="my-page-right-title"></open-data> -->
+                    <!-- 电话需从缓存中获取 -->
+                    <text class='my-page-right-phone'>{{ userInfo.userPhone  }}</text>
+                </view>
+            </view>
+        </view>
+        <view class="my-page-list-cells my-page-list">
+            <!-- 我的预约-->
+            <!-- <navigator url="/pages/myAppointment/myAppointment" class="my-page-list-access my-page-list-order-bottom" hover-class="my-page-list-active">
+                <view class="my-page-list-hd">
+                    <image class='my-page-list-img' src="/img/my/appointment_icon.png" ></image>
+                </view>
+                <view class="my-page-list-bd">我的预约</view>
+                <view class="my-page-list-arrow ">
+                    <image class='my-page-list-arrow-right'src="/img/my/arrow_icon.png" ></image>
+                </view>
+            </navigator> -->
+            <navigator url="/pages/myCollection/myCollection" class="my-page-list-access" hover-class="my-page-list-active">
+                <view class="my-page-list-hd">
+                    <image class='my-page-list-img' src="/img/my/collection_icon.png" ></image>
+                </view>
+                <view class='my-page-box'>
+                  <view class="my-page-list-bd">我的收藏</view>
+                  <view class="my-page-list-arrow ">
+                      <image class='my-page-list-arrow-right'src="/img/my/arrow_icon.png" ></image>
+                  </view>
+                </view>
+            </navigator>
+            <!-- 我的订单-->
+            <navigator url="/pages/myOrder/myOrder" class="my-page-list-access my-page-list-order-top" hover-class="my-page-list-active">
+                <view class="my-page-list-hd">
+                    <image class='my-page-list-img' src="/img/my/order_icon.png" ></image>
+                </view>
+                <view class='my-page-box'>
+                  <view class="my-page-list-bd">我的订单</view>
+                  <view class="my-page-list-arrow ">
+                      <image class='my-page-list-arrow-right'src="/img/my/arrow_icon.png" ></image>
+                  </view>
+                </view>
+            </navigator>
+            <!-- 收货地址 -->
+             <navigator style="display:none;" url="/pages/myAddress/myAddress" class="my-page-list-access" hover-class="my-page-list-active">
+                <view class="my-page-list-hd">
+                    <image class='my-page-list-img' src="/img/my/address_icon.png" ></image>
+                </view>
+                <view class='my-page-box'>
+                  <view class="my-page-list-bd">收货地址</view>
+                  <view class="my-page-list-arrow ">
+                      <image class='my-page-list-arrow-right'src="/img/my/arrow_icon.png" ></image>
+                  </view>
+                </view>
+            </navigator>
+            <!-- 校区咨询 -->
+            <navigator style="display:none;" url="/pages/myCampus/myCampus" class="my-page-list-access" hover-class="my-page-list-active">
+                <view class="my-page-list-hd">
+                    <image class='my-page-list-img' src="/img/my/collection_icon.png" ></image>
+                </view>
+                <view class='my-page-box'>
+                  <view class="my-page-list-bd">校区咨询</view>
+                  <view class="my-page-list-arrow">
+                      <image class='my-page-list-arrow-right'src="/img/my/arrow_icon.png" ></image>
+                  </view>
+                </view>
+            </navigator>
+            <!--客服咨询-->
+            <navigator style='height:140rpx;' url="" class="my-page-list-access my-page-list-access-customer " hover-class="my-page-list-active">
+                <view class="my-page-list-hd">
+                    <image class='my-page-list-img' src="/img/my/customer_icon.png" ></image>
+                </view>
+                <view class="my-page-list-bd">
+                  <button open-type="contact" bindcontact="handleContact" class='my_order_btn'>客服咨询</button>
+                </view>
+                <view class="my-page-list-arrow ">
+                    <image class='my-page-list-arrow-right'src="/img/my/arrow_icon.png" ></image>
+                </view>
+            </navigator>
+        </view>
+    </view>
+</view>

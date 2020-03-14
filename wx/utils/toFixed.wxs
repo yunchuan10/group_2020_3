@@ -1,0 +1,34 @@
+var filters = {
+  //保留几位小数
+  toFix: function (value) {
+    
+    if(value > 1){
+      return value.toFixed(1) +' '+ "km"//此处1为保留两位小数
+    }else if(value >=0){
+      return value.toFixed(3) * 1000 +' '+"m"
+    }else{
+      return ''
+    }
+   
+  },
+  //截取字符串
+  toStrings:function(val,start,end){
+    return val.substring(start, end);
+    
+  },
+  //限制参数的范围
+  maxLeft:function(val){
+    if(val > 0){
+      return 0;
+    }else if(val < -187){
+      return -187;
+    }else{
+      return val
+    }
+  }
+}
+module.exports = {
+  toFix: filters.toFix,
+  toStrings:filters.toStrings,
+  maxLeft: filters.maxLeft
+}

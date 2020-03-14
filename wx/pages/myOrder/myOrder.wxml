@@ -1,0 +1,72 @@
+<!--pages/myOrder/myOrder.wxml-->
+<view class='my-order'>
+      <!-- 缺省页面 -->
+      <view class='order-default-page' wx:if="{{ newOrders.length == 0 }}">
+          <view class='order-default-content'>
+            <image class='order-default-img' src='/img/my/orderDefault_icon.png'></image>
+            <text class='order-default-text'>没有订单哦 </text>
+            <text class='order-default-text'>快去购买课程吧！</text>
+          </view>
+      </view>
+      <!-- 根据后台数据显示缺省页或者正常的内容区 -->
+      <view wx:if="{{ newOrders.length > 0}}">
+        <!-- 根据后台数据进行循环遍历的代码块  order-content -->
+        <view class="order-content" wx:for-items="{{ newOrders }}" wx:key="item.id" data-id="{{item.id}}" data-goodsId="{{ item.goods_id }}" >
+            <!-- 印章部分 -->
+            <!-- <view class='order-content-seal'>
+                <image class='order-seal-img' src='/img/my/red_seal.png' wx:if="{{item.order_status == 1}}"></image>
+            </view> -->
+            <!-- top 部分 -->
+            <view class='order-content-top'>
+                <view class='order-top-left'>订单编号：
+                    <text class='order-top-number'>{{ item.order_no }}</text>
+                </view>
+                <view class='order-top-right'>
+                  <text class='order-top-state'wx:if="{{item.order_status == 0}}">待支付</text>
+                  <text class='order-top-state'wx:if="{{item.order_status == 1}}">已支付</text>
+                  <text class='order-top-state'wx:if="{{item.order_status == 2}}">已取消</text>
+                  <text class='order-top-state'wx:if="{{item.order_status == 4}}">已退款</text>
+                </view>
+            </view>
+            <!-- center 中间部分 -->
+            <view class='order-content-center' bindtap='orderDetails'  data-order_no="{{item.order_no}}" data-order_status="{{item.order_status}}">
+                <!-- <view class='order-center-left'style="background:#fff">
+                    <image class='order-center-img' src="{{ item.goods_small_img }}"></image>
+                </view> -->
+                <view class='order-center-right'>
+                    <text class='order-center-title'>{{ item.goods_name }}</text>
+                    <view class='order-center-footer'>
+                                        <view class='order-center-wrap'>
+                            下单时间:<text class='order-center-price'>{{ item.created_at }}</text>
+                        </view>
+                        <view class='order-center-wrap'>
+                            总价:￥<text class='order-center-price'>{{ item.amount }}</text>
+                        </view>
+    
+                    </view>
+                </view>
+            </view>
+            <!-- footer 底部部分 -->
+            <view class='order-content-footer'>
+                <view class='order-footer-left'>
+                  <text class='order-footer-date'></text>
+                </view>
+                <!-- 以下按钮根据数据保留相应的 绑定相应的点击事件在 js 中完成页面跳转-->
+                <view class='order-footer-right'>
+                    <view class='order-footer-cancel order-btn' bindtap='cancleOrder' wx:if="{{item.order_status == 0}}" data-id="{{item.id}}">取消订单</view>
+                    <view class='order-footer-pay order-btn' wx:if="{{item.order_status == 0}}" data-order-no="{{ item.order_no }}" bindtap='immediatePayment'>立即支付</view>  
+                    <view class='order-footer-details order-btn' wx:elif="{{item.order_status != 0}}" data-order_no="{{item.order_no}}" data-order_id="{{item.order_id}}"  data-order_status="{{item.order_status}}" bindtap='orderDetails' >订单详情</view>                
+                </view>
+            </view>
+        </view> 
+  </view>
+</view>
+
+
+<!-- 加载提示 -->
+<view class="weui-loadmore" hidden="{{hide}}">
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore__tips">努力加载中</view>
+</view>
+ <!-- 到底部提示文案 -->
+<view class='order-end-title' hidden="{{orderTitle}}">订单加载完毕 ~_~</view>

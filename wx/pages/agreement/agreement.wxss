@@ -1,0 +1,124 @@
+
+page{
+  height: 100%;
+  position: relative;
+}
+/* 协议部分 */
+.agree-contain{
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  padding-bottom: 500rpx;
+}
+.scroll-box{
+  height: 100%;
+  background:rgba(249,249,249,1);
+  font-size:27rpx;
+  line-height:37rpx;
+}
+
+/* .scroll-box::-webkit-scrollbar{
+  width:6rpx;
+  height:600rpx;
+  background:rgba(17,17,17,1);
+  color:rgba(17,17,17,1);
+  border-radius:3rpx;
+} */
+
+.view-item{
+  padding: 42rpx 24rpx;
+}
+.text-item{padding: 20rpx 0;display: block;}
+
+
+/* 底部表单 */
+.ph-form{
+  position: absolute;
+  z-index: 6;
+  left: 0;
+  bottom: 0;
+  height: 500rpx;
+  width: 100%;
+  background: #fff;
+}
+.form-tip{
+  padding: 17rpx 37rpx 17rpx 57rpx;
+  height: 66rpx;
+  background: #111;
+  color: #fff;
+  line-height: 33rpx;
+  font-size: 24rpx;
+  position: relative;
+}
+.form-tip::after{
+  font-size: 24rpx;
+  content: '*';
+  color: #f43530;
+  position: absolute;
+  left: 32rpx;
+  top: 20rpx;
+}
+
+.ph-inputs{
+  height: 240rpx;
+  padding: 0 32rpx;
+}
+
+.ph-inputs .ph-item-bord::after{
+  content: '';
+  display: block;
+  width: 100%;
+  position: absolute;
+  height: 1px;
+  z-index: 2;
+  left: 0;
+  bottom: 0;
+  background:rgba(221,221,221,1);
+}
+
+.ph-item{
+  font-size:27rpx;
+  color: #111;
+  position: relative;
+  display: flex;
+  height: 120rpx;
+  align-items: center;
+}
+.ph-item-c{
+  flex: 1;
+  padding: 0 20rpx;
+}
+.ph-item-r1{
+  font-size:24rpx;
+  color: #fff;
+  height: 52rpx;
+  width: 162rpx;
+  line-height: 52rpx;
+  background: #2C8CFF;
+  padding: 0 0rpx;
+  border-radius: 4rpx;
+  text-align: center;
+}
+.ph-item image{
+  height: 40rpx;
+  width: 40rpx;
+}
+
+.ph-sub{
+  height: 140rpx;
+  text-align: center;
+  padding: 20rpx 32rpx 0;
+}
+.ph-btn{
+  background: #dfdfdf;
+  color: #fff;
+  font-size: 36rpx;
+  height: 86rpx;
+  line-height: 86rpx;
+  border-radius: 44rpx;
+  border: none;
+  width: 100%;
+
+}

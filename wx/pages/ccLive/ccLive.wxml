@@ -1,0 +1,131 @@
+<view class="live-box" bindtap='faceShow'>
+
+  <!-- 直播文档 -->
+  <view class="video-box" wx-if="{{video_set}}">
+    <view class="borard-out {{max_drawing?'max-borard':''}}" wx-if='{{live_type==1}}' bindtap='maxDrawing'>
+      <drawingBoard style="position: relative;top:{{max_drawing?drawingBoardTop:'0px'}};" width="100%" height="{{max_drawing?drawingBoardHeight:'100%'}}"></drawingBoard>
+    </view>
+    
+    <cover-image wx-if="{{!max_drawing&&live_type==1}}" class='max-drawing' data-max="{{true}}" bindtap='maxDrawing' src="/img/ccLive/i2.png"></cover-image>
+
+    <!-- 直播前后提示 -->
+    <view class="live-tip"  wx-if="{{live_type==0}}">
+      <view class='tip-t'>{{title}}</view>
+      <view class='tip-c'>直播即将开始</view>
+      <view class='tip-b'>{{live_t}}</view>
+    </view>
+
+    <!-- 直播后提示 -->
+    <view class="live-tip"  wx-if="{{live_type==2}}">
+      <view class='tip-c' style="font-size: 40rpx;padding:0;">直播已结束</view>
+    </view>
+
+    
+
+  </view>
+
+  <!-- 直播列表 -->
+  <view class="talk-contain" style="display: {{max_drawing? 'none':'block'}}">
+
+    <view class="talk-tab">
+      <view bindtap='talkTabSec' data-sec="0" class="{{talk_tab==0?'sec':''}}">讨论区</view>
+      <view bindtap='talkTabSec' data-sec="1" class="{{talk_tab==1?'sec':''}}">课程章节</view>
+    </view>
+
+    
+    <view class="live-section">
+
+      <!-- 讨论区 -->
+      <movable-area class="talk-section" style="display:{{(talk_tab==0&&live_type!=-1)?'block':'none'}};" wx-if="{{video_set}}">
+      
+        <!-- 视频 -->
+        <movable-view class='live-player' x="{{x}}" y="{{y}}" direction="all" damping="10000" animation="{{false}}" friction="{{9999}}" wx-if="{{ live_type==1 && video_set==2 }}">
+          <live-player id="player" src="{{playerUrl}}" mode="live" autoplay bindstatechange="replay">
+          </live-player>
+        </movable-view>
+
+        <view class="scroll-box">
+          <!-- 讨论列表 -->
+          <scroll-view scroll-y scroll-into-view="{{toChat}}" wx-if="{{hasForbid}}">
+
+            <block wx:for="{{talk_list}}" wx:key="{{index}}" wx-if="{{item.isShow==1}}">
+              <view class='talk-item'>
+                <view class='talk-title'> 
+                  <view class='talk-l'>
+                  {{item.username}} <view wx-if="{{item.getRoleStr}}">{{item.getRoleStr}}</view>
+                  </view>
+                  <text class='talk-r'>{{item.time_li}}</text>
+                </view>
+                <rich-text class='talk-msg' nodes="{{item.txt}}"></rich-text>
+              </view>
+            </block>
+            <view id="lastChat"></view>
+            
+            <!-- 提示语 -->
+            <view class="talk-tip" wx-if='{{talk_list.length==0||live_type==2}}'>{{live_type==2?'直播已结束':'欢迎来到直播间'}}</view>
+
+
+          </scroll-view>
+
+        </view>
+
+        <!-- 发送讨论 -->
+        <view class='send-contain'>
+
+          <!-- 表情 -->
+          <view class='emoj-contain' wx-if="{{face_show}}">
+            <view wx:for="{{['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20']}}" bindtap='addEmoj' wx:key="{{index}}" data-emoj="{{item}}">
+              <image data-emoj="{{item}}" src='https://newapi.dongfangshangxue.com/static/dist/images/common/cc-face/{{item}}.png'></image>
+            </view>
+            <view></view>
+          </view>
+
+          <view class='send-section'>
+            <view class='face-box' catchtap='faceShow' data-show="1">
+              <image src='/img/ccLive/i1.png' ></image>
+            </view>
+            <view class='send-input'><input  class='send-msg' value='{{chatMsg}}' placeholder='和大家说点什么吧...'  bindinput='bindChatInput'/></view>
+            <view class="send-btn" bindtap='msgSend' style='{{can_talk?"":"background:#999;"}}'>发送</view>
+          </view>
+        </view>
+
+      </movable-area>
+
+      <!-- 课程章节 -->
+      <view class="live-list" wx-if="{{talk_tab==1}}" width="100%" height="100%">
+
+        <!-- 课程列表 -->
+        <view class='list-c' >
+          <!--  sec播放中 back回放 wait未开始 line其他直播  -->
+          <view data-id='{{item.id}}' bindtap='courseLive' wx:for='{{course_list}}' class='{{item.i_class}}'  wx:key="{{index}}">
+            <view class='item-l' wx:if="{{(index+1)<10}}">{{'0'+(index+1)}}</view>
+            <view class='item-l' wx:else>{{(index+1)}}</view>
+            <view class='item-c'>
+              <text class='item-t'>{{item.title}}</text>
+              <view class='item-time'>{{item.day}} <text decode="{{true}}">&nbsp;&nbsp;&nbsp;{{item.munit}}</text></view>
+            </view>
+            <view class='item-r'>
+
+              <image class='line-icon' src='/img/common/i9.png'></image>
+              <text class="line-txt">{{item.i_class=='sec'?'播放中':'直播中'}}</text>
+              <text class="wait-txt">未开始</text>
+              <image class='icon' src='/img/common/i10.png'></image>
+
+              <!-- <image wx-if="{{item.i_class=='line'||item.i_class=='sec'}}" class='line-icon' src='/img/common/i9.png'></image>
+              <text wx-if="{{item.i_class=='line'||item.i_class=='sec'}}" class="line-txt">{{item.i_class=='sec'?'播放中':'直播中'}}</text>
+              <text wx-if="{{item.i_class=='wait'}}" class="wait-txt">未开始</text>
+              <image wx-if="{{item.i_class==''}}" class='icon' src='/img/common/i10.png'></image> -->
+            </view>
+          </view>
+
+        </view>
+
+      </view>
+
+    
+    </view>
+  
+  </view>
+
+
+</view>

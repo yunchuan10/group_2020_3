@@ -1,0 +1,98 @@
+
+.order-pay{
+  padding-bottom: 150rpx;
+}
+.pay-textr2{
+  color: #F43530!important;
+}
+.pay-title{
+  padding: 52rpx 0 35rpx 40rpx;
+  color: #111;
+  font-size: 40rpx;
+}
+.order-dist{
+  line-height: 70rpx;
+  background: #fff;
+  padding: 10rpx 40rpx;
+}
+.order-dist>view{
+  color: #555;
+  display: flex;
+  justify-content: space-between;
+  min-height: 46rpx;
+  padding: 12rpx 0;
+  line-height: 46rpx;
+  flex-wrap: wrap;
+}
+.dist-r{
+  color: #111;
+  text-align: right;
+  padding-left: 15rpx;
+  width: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+
+/* 支付方式 */
+.type-box{
+  display: flex;
+  background: #fff;
+  height: 140rpx;
+  padding: 0 40rpx 0 30rpx;
+  justify-content: space-between;
+  align-items: center;
+}
+.type-box-l{
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.type-box-c{
+  flex: 1;
+  padding: 0 15rpx 0 30rpx;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.box-c1{
+  font-size: 32rpx;
+  color: #111;
+  width: 100%;
+}
+.box-c2{
+  font-size: 24rpx;
+  color: #999;
+  padding-top: 15rpx;
+  width: 100%;
+}
+
+.type-box-r{
+  width: 34rpx;
+  height: 34rpx;
+}
+
+
+
+.pay-btn{
+  padding: 32rpx 40rpx;
+  text-align: center;
+  position: fixed;
+  z-index: 9;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+  height: 150rpx;
+}
+
+.pay-btn button{
+  color: #fff;
+  font-size: 36rpx;
+  height: 86rpx;
+  line-height: 86rpx;
+  border-radius: 44rpx;
+  border: 0 none;
+  width: 100%;
+}

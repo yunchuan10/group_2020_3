@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "公开课",
+  "usingComponents": {
+    "drawingBoard": "plugin://ccsdk/drawingBoard"
+  }
+}

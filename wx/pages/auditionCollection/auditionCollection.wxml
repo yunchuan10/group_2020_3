@@ -1,0 +1,62 @@
+<auth-setting userInfo ="{{userInfo}}" bind:myevent="getList"></auth-setting>
+<view class="list-out nav-fixed" wx:if="{{userInfo.nickName && (userInfo.userPhone || userPhone)}}">
+  <!-- 筛选列表 -->
+  <view class="list-selects">
+    <view wx:for="{{courseListSelect}}" data-id="{{ item.id }}" data-index='{{ index }}' data-idcat="{{ item.cat_id }}" bindtap='changContent' class="{{ index_ == index?'sec':''}}">
+      {{item.cat_name}}
+    </view>
+  </view>
+  <!-- 授权弹框 -->
+  <!-- 列表 -->
+  <view class="my-collection">
+      <navigator class="my-content" wx:for="{{courseLists}}" wx:for-index="idx" url="{{'/pages/course/course?courderId='+item.id}}">
+        <view class='my-content-title'>
+          <view class='my-content-name'>{{item.goods_name}}</view> 
+            <view class='my-content-center'>
+                <view class='my-content-left'>
+                    <text class='my-content-left'>{{item.course_count}}课次／共{{item.course_hour}}{{item.time_unit}}</text>
+                </view>
+            </view>
+          <block  wx:if="{{ item.tag.length>0 }}">
+          <view class='my-content-icon'  wx:for-items="{{  item.tag  }}"  wx:for-item="{{ item }}" wx:key="{{index}}">{{ item.tag[index]}}</view>
+          </block>
+        </view>
+
+        <view class='my-footer'>
+          <view class='my-footer-left'>
+            <block wx:if="{{ item.teaching_teacher.length>0 }}">
+              <view class='my-footer-teacher' wx:for-items="{{  item.teaching_teacher  }}"  wx:for-item="{{ item }}" wx:key="{{index}}">
+                  <view class='my-footer-img'  style="background:#EFEFF4 url('{{item.teaching_teacher[index].photoPath}}') no-repeat  center center / 100% auto"  binderror="errorFunction" data-errorimg="{{index}}" data-errorimgout="{{idx}}"></view>
+                  <text class='my-teacher-name'>{{ item.teaching_teacher[index].userDisplayName }}</text>
+              </view>
+            </block>
+          </view>
+          <view class='my-footer-right'>
+              <view class='my-footer-tops'>
+                <text class='footer-right-icon'>¥ </text>
+                <text class='footer-right-money'>{{item.shop_price}}</text>
+              </view>
+              <text class='my-footer-left'>已有{{item.buy_number}}人购买</text>
+          </view>
+        </view>
+      </navigator>
+
+    </view>
+
+    <view class="bott-line" wx:if='{{ !hasMoreList && courseLists.length>0 }}'>我是有底线的 ~_~</view>
+
+    <!-- 缺省页面 -->
+    <view class='appointment-default-page' wx:if="{{ courseLists.length==0 && navFixed }}">
+        <view class='appointment-default-content'>
+          <image class='appointment-default-img' src='/img/my/collectionDefault_icon.png'></image>
+          <text class='appointment-default-text'>还没有当前专业的课程哦 ^_^</text>
+        </view>
+    </view>
+
+</view>
+
+
+
+
+
+

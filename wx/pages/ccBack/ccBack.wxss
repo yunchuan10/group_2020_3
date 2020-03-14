@@ -1,0 +1,572 @@
+
+page{
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.live-box{
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  padding-top: 420rpx;
+}
+
+.video-box{
+  position: absolute;
+  z-index: 9999999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 420rpx;
+  /* background: #999; */
+}
+
+.live-tip{
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+  font-size: 28rpx;
+  text-align: center;
+  background: rgba(0,0,0,.7);
+}
+
+.tip-t{
+  padding: 0 40rpx;
+  font-size: 32rpx;
+}
+.tip-c{
+  padding-top: 40rpx;
+  font-size: 26rpx;
+}
+.tip-b{
+  font-size: 42rpx;
+}
+
+
+.talk-contain{
+  height: 100%;
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  padding-top: 100rpx;
+}
+
+.talk-tab{
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  height: 100rpx;
+  align-items: center;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 32rpx;
+  color: #111;
+}
+.talk-tab::after{
+  position: absolute;
+  z-index: 5;
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1rpx;
+  left: 0;
+  bottom: 0;
+  background: #ddd;
+
+}
+
+.talk-tab>view{
+  width: 50%;
+  position: relative;
+}
+.talk-tab>view.sec{
+  color: #2C8CFF;
+}
+.talk-tab>view.sec::after{
+  position: absolute;
+  content: '';
+  display: block;
+  width: 40%;
+  left: 30%;
+  bottom: 0;
+  height: 4rpx;
+  background: #2C8CFF;
+}
+
+
+.live-section{
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background: #fff;
+}
+
+/* 讨论区 */
+.talk-section{
+  height: 100%;
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+  background: #f9f9f9;
+}
+
+.scroll-box{
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.talk-tip{
+  font-size: 24rpx;
+  text-align: center;
+  color: #555;
+  padding: 20rpx 0 40rpx;
+}
+
+.send-contain{
+  position: absolute;
+  z-index: 6;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+  height: 133rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 40rpx;
+  box-sizing: border-box;
+}
+
+/* 表情 */
+.emoj-contain{
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  position: absolute;
+  z-index: 20;
+  bottom: 133rpx;
+  left: 0;
+  background: #fff;
+  padding: 20rpx 20px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  height: 240rpx;
+  align-content: space-between;
+}
+
+.emoj-contain view{
+  display: flex;
+  width: 14.285%;
+  height: 75rpx;
+  justify-content: left;
+  align-items: center;
+}
+
+.emoj-contain view image{
+  height: 50rpx;
+  width: 50rpx;
+}
+
+.send-section{
+  width: 100%;
+  display: flex;
+  height: 87rpx;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 44rpx;
+  overflow: hidden;
+  background: #F6F8FA;
+}
+
+
+.face-box{
+  width: 94rpx;
+  flex-basis: 94rpx;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.face-box>image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.send-input{
+  height: 100%;
+  flex: 1;
+  padding: 0 5rpx;
+  overflow-y: auto;
+  display: flex;
+  align-items: center;
+}
+
+.send-input .send-msg {
+  /* display: block; */
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  /* padding: 27rpx 0; */
+  overflow-y: auto;
+  font-size: 24rpx;
+  line-height: 32rpx;
+  display: flex;
+  align-items: center;
+}
+
+.send-btn{
+  height: 100%;
+  width: 120rpx;
+  text-align: center;
+  line-height: 87rpx;
+  font-size: 32rpx;
+  color: #fff;
+  background: #2C8CFF;
+}
+
+
+.scroll-box scroll-view{
+  padding-top: 30rpx;
+  box-sizing: border-box;
+  height: 100%;
+}
+.talk-item{
+  padding: 0 40rpx 30rpx 40rpx;
+}
+
+.talk-title{
+  height: 32rpx;
+  line-height: 32rpx;
+  display: flex;
+  justify-content: space-between;
+  font-size: 24rpx;
+  color: #2C8CFF;
+  align-items: center;
+  padding-bottom: 4rpx;
+}
+.talk-l{
+  flex: 1;
+  margin-right: 10rpx;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.talk-l>view{
+  font-size: 16rpx;
+  background: #e2e2e2;
+  color: #555;
+  text-align: center;
+  padding: 0 7rpx;
+  line-height: 27rpx;
+  height: 27rpx;
+  margin-left: 10rpx;
+}
+.talk-r{
+  color: #999;
+  font-size: 20rpx;
+}
+
+.talk-msg{
+  color: #333;
+  font-size: 24rpx;
+  line-height: 36rpx;
+  display: block;
+  padding-left: 5rpx;
+}
+
+.talk-msg image{
+  width: 36rpx;
+  height: 36rpx;
+  margin: 0 5rpx;
+}
+
+
+.live-list{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow-y: auto;
+}
+.list-c{
+  padding: 0 40rpx;
+  height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.list-c>view{
+  display: flex;
+  width: 100%;
+  border-bottom: 1rpx solid #d8d8d8;
+  height: 160rpx;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-l{
+  margin-right: 20rpx;
+  flex-shrink: 0;
+  font-size: 32rpx;
+  color: #333;
+  font-style:italic;
+}
+
+.item-c{
+  flex: 1;
+  margin-right: 50rpx;
+  overflow: hidden;
+}
+
+.item-c .item-t{
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 32rpx;
+  color: #111;
+}
+
+.item-c .item-time{
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 18rpx;
+}
+
+.item-r{
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  font-size: 20rpx;
+  color: #2C8CFF;
+  align-items: center;
+}
+
+.item-r .line-icon{
+  width: 47rpx;
+  height: 47rpx;
+  display: none;
+}
+
+.item-r text{
+  display: none;
+}
+
+.item-r .wait-txt{
+  color: #999;
+  font-size: 24rpx;
+}
+
+.item-r .icon{
+  width: 53rpx;
+  height: 53rpx;
+}
+
+/* sec播放中 back回放 wait未开始 line其他直播 */
+
+.sec .item-l,.list_sec .item-l{
+  color: #2C8CFF;
+}
+.sec .item-c .item-t,.list_sec .item-c .item-t{
+  color: #2C8CFF;
+}
+.sec .item-r .icon{
+  display: none;
+}
+.sec .item-r .line-icon, .sec .item-r .line-txt{
+  display: block;
+}
+
+.wait .item-r image{
+  display: none;
+}
+.wait .item-r .wait-txt{
+  display: block;
+}
+
+.line .item-r image{
+  display: none;
+}
+.line .item-r .line-txt,.line .item-r .line-icon{
+  display: block;
+}
+
+
+
+
+
+/* 视频， 文档 */
+.live-player{
+  position: absolute;
+  background: #333;
+  width: 250rpx;
+  height: 200rpx;
+  /* background: transparent; */
+  z-index: 200;
+  /* left: 100%;
+  top: 30rpx;
+  margin-left: -280rpx; */
+  /* top: 30rpx;
+  left: auto;
+  bottom: auto;
+  right: 30rpx;
+  z-index: 200; */
+}
+#player{
+  width: 250rpx;
+  height: 200rpx;
+  z-index: 6;
+}
+
+.borard-out{
+  position: relative;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  /* background: #fff; */
+}
+
+.max-borard{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  z-index: 9999;
+  /* display: flex;
+  align-items: center; */
+}
+
+
+.max-drawing{
+  height: 60rpx;
+  width: 60rpx;
+  position: absolute;
+  z-index: 290;
+  bottom: 30rpx;
+  right: 30rpx;
+}
+
+
+
+
+.bottom {
+    display: flex;
+    background:rgba(0,0,0,0.5);
+    height:70rpx;
+    align-items: center;
+    padding: 5rpx 10rpx;
+    box-sizing: border-box;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    z-index: 9999;
+    left: 0;
+}
+
+.bottom cover-image{
+    width: 60rpx;
+    height: 60rpx;
+}
+
+/*播放*/
+.bottom .playBtn-box {
+    flex:1.2;
+    margin-right: 10rpx;
+}
+
+/*时间*/
+.bottom .time-box{
+    flex:6.5;
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+    width: 200rpx;
+    height: 28rpx;
+    line-height: 28rpx;
+}
+
+.bottom .time-box .time-current{
+    font-size:26rpx;
+    color:#fff;
+}
+
+.bottom .time-box .time-duration{
+    font-size:26rpx;
+    color:rgba(255,255,255,0.6);
+}
+
+/*进度条*/
+.bottom .loadingbar-box{
+    flex:10;
+    display: flex;
+    align-items: center;
+    margin-right: 10rpx;
+}
+
+.bottom .loadingbar-box .loadingbar{
+    height: 32rpx;
+    /*width: 395rpx;*/
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.bottom .loadingbar-box .loadingbar .background{
+    height: 6rpx;
+    width: 100%;
+    background:rgba(255,255,255,0.8);
+    margin-left: -16rpx;
+}
+
+.bottom .loadingbar-box .loadingbar .background .progress{
+    background:#2C8CFF;
+    width:0%;
+    height:100%;
+    margin-left: -14rpx;
+}
+
+.bottom .loadingbar-box .loadingbar .circle-box{
+    position: relative;
+    /*left:0rpx;*/
+    z-index: 99;
+    width:32rpx;
+    height:32rpx;
+}
+
+.bottom .loadingbar-box .loadingbar .circle{
+    width:32rpx;
+    height:32rpx;
+    position: relative;
+    z-index: 99;
+}
+
+/*全屏*/
+.bottom .fullscreenBtn-box {
+    flex:1.5;
+}
+
+
+
+
+

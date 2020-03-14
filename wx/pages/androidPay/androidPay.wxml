@@ -1,0 +1,60 @@
+
+
+<view class='order-pay'>
+  <!-- 订单信息 -->
+  <view class='order-d'>
+    <view class='pay-title'>订单信息</view>
+    <view class='order-dist'>
+      <view>
+        <text>订单编号</text>
+        <text class='dist-r'>{{orderInfo.order_no}}</text>
+      </view>
+      <view>
+        <text>课程名称</text>
+        <text class='dist-r'>{{orderInfo.goods[0].goods_name}}</text>
+      </view>
+      <view>
+        <text>原价</text>
+        <text class='dist-r'>￥{{orderInfo.goods[0].goods_price}}</text>
+      </view>
+      <view>
+        <text>优惠券</text>
+        <text class='dist-r pay-textr2'>-￥{{orderInfo.discount_amount}}</text>
+      </view>
+      <view>
+        <text>实付价</text>
+        <text class='dist-r'>￥{{orderInfo.amount}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 支付方式 -->
+  <view class='pay-type'>
+    <view class='pay-title'>支付方式</view>
+    <view class='type-box'>
+      <image class='type-box-l' src='/img/common/i6.png'></image>
+      <view class='type-box-c'>
+        <text class='box-c1'>微信支付</text>
+        <text class='box-c2'>推荐安装微信7.0及以上版本的用户使用</text>
+      </view>
+      <image class='type-box-r' src="/img/common/i5.png"></image>
+    </view>
+  </view>
+
+  <!-- 立即支付 -->
+  <view class='pay-btn'>
+    <button class='button-able' disabled="{{false}}" bindtap='wxPayment' data-orderStatus="{{orderInfo.order_status}}">立即支付</button>
+  </view>
+
+</view>
+
+
+
+
+
+
+
+
+
+
+

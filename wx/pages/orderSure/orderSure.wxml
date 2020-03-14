@@ -1,0 +1,75 @@
+
+<view class='orders'>
+  <!-- 收货地址 -->
+  <view wx:if="{{is_object}}">
+    <view class='address' wx:if="{{!is_not_address}}" bindtap="editAddress">
+      <text>选择收货地址</text>
+      <image class="jump-img" src="/img/my/arrow_icon.png" />
+    </view>
+    <view class='address-really' wx:else bindtap="editAddress">
+      <view class='address-top'>
+        <text class='address-name'>{{ buyer_name }}</text>
+        <text class='address-tel'>{{ buyer_phone }}</text>
+      </view>
+      <view class='address-bottom'>
+        <image class='jump-img-local' src="/img/myCampus/location_icon.png"></image>
+        <text>{{ addressName }}{{ detail_address }}</text>
+        <image class='jump-img-arrow' src="/img/my/arrow_icon.png"></image>
+      </view>
+    </view>
+  </view>
+  <!-- 产品 -->
+  <view class='product'>
+    <!-- <view class='product-l'>
+      <image src=''></image>
+    </view> -->
+    <view class='product-r'>
+      <text class='product-r-t'>{{parameteData.goodsName}}</text>
+      <text class='product-r-b'>¥ {{parameteData.goodsPrice}}</text>
+    </view>
+  </view>
+  <!-- 优惠券 -->
+  <view class='discount' wx:if="{{parameteData.goodsPrice != '0'}}">
+    <view>
+      <text>优惠券</text>
+      <switch  color="#2C8CFF" bindchange="codeSwitchChange" />
+    </view>
+    <view class='discount-input' wx:if="{{discountCode}}">
+      <input type="text" maxlength='16' placeholder='请输入16位优惠码' bindinput='bindInputCode'></input>
+    </view>
+  </view>
+
+  <!-- 立即支付 -->
+  <form class='pay-form' bindsubmit="createOrder">
+    <view class='pay-msgs'>
+      <view>
+        <text>原价</text>
+        <text class='pay-textr'>￥{{parameteData.goodsPrice}}</text>
+      </view>
+      <view>
+        <text>优惠券</text>
+        <text class='pay-textr2'>-￥{{couponDiscount}}</text>
+      </view>
+      <view>
+        <text>实付价</text>
+        <text class='pay-textr'>￥{{(parameteData.goodsPrice * 1000 - couponDiscount * 1000)/1000}}</text>
+      </view>
+    </view>
+
+    <view class='pay-sub'>
+      <button class='pay-btn button-able' wx:if="{{parameteData.goodsPrice == '0'}}" bindtap="bindFreeCollection">免费获取</button>
+      <button class='pay-btn button-able' wx:else  form-type="submit">立即支付</button>
+    </view>
+  </form>
+
+  <!-- 免费获取成功 -->
+  <view class="auth-setting" wx:if="{{boxShow}}" >
+    <view class='auth-contain'>
+      <icon type="success" size="60"/>
+      <text class='auth-text1'>获取成功</text>
+      <text class='auth-text2'>请前往东方尚学app或东方尚学官网，准备开始学习吧！</text>
+    </view>
+  </view>
+
+
+</view>

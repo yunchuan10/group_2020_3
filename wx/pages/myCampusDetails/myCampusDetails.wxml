@@ -1,0 +1,60 @@
+<!--pages/myCampusDetails/myCampusDetails.wxml-->
+<view class='campus-detail'>
+    <wxs module="filters" src="../../utils/toFixed.wxs"></wxs>
+    <view class='campus-detail-content'>
+        <!-- 轮播区域 start-->
+        <view class="page-section page-section-spacing swiper">
+        <swiper
+          indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}"
+          interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}rpx" next-margin="{{nextMargin}}rpx">
+          <block wx:for="{{ imgArr }}" wx:key="index" >
+            <swiper-item class="swiper-items">
+              <image class="swiper-item {{item}}" src='{{ item }}' style='margin-left:40rpx'></image>
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+        <!-- 轮播区域 end -->
+        <view class='campus-detail-center'>
+            <view class='detail-center'>
+                <view class='campus-titles'>{{ campusSchool.campus_name }}</view>
+            </view>
+            <view class='detail-center'>
+                <view class='campus-titles'>
+                    <image class='detail-center-icon' src='/img/myCampus/clock_icon.png'></image>
+                    <text class='detail-center-text'>工作时间：{{campusSchool.work_time }}</text>
+                </view>
+            </view>
+            <view class='detail-center' bindtap='bindNavigationMap' data-coordinate="{{campusSchool.coordinate}}" data-name="{{ campusSchool.campus_name }}" data-address="{{ campusSchool.address }}">
+                <view class='campus-titles'>
+                    <image class='detail-center-icon' src='/img/myCampus/location_icon.png'></image>
+                    <view class='detail-center-location'>
+                      <text class='detail-center-text'>{{ campusSchool.address }}</text>
+                      <text class='detail-center-text detail-center-text-2'>距离您{{ filters.toFix( campusSchool.distance ) || '未知' }} </text>
+                    </view>
+                </view>
+                <image class='detail-center-arrow' src='/img/my/arrow_icon.png'></image>
+            </view>
+            <!--手机号-->
+            <view class='detail-center' bindtap='phonecallevent'>
+                <view class='campus-titles'>
+                  <image class='detail-center-icon' src="/img/myCampus/telephone_icon.png" ></image>
+                  <text class='detail-center-text'>{{ campusSchool.phone }}</text>
+                </view>
+                <image class='detail-center-arrow' src='/img/my/arrow_icon.png'></image>
+            </view>
+        </view>
+        <view class='campus-service'  wx:if="{{serviceArr.length>0}}">
+            <view class='campus-title'>特色服务</view>
+            <view class='campus-service-content'>
+              <text wx:for="{{ serviceArr }}"  wx:key="index">{{ item }}</text>
+            </view>
+        </view>
+
+        <view class='campus-service-call'>
+          <view class='campus-service-wrap'>
+              <button  open-type="contact" bindcontact="handleContact" class='my_order_btn' >客服咨询</button>
+          </view>
+        </view>
+    </view>
+</view>

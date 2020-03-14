@@ -1,0 +1,40 @@
+
+<!-- 支付二维码 -->
+<view class="pay-code">
+  <view class='pay-box'>
+    <text class='code-title'>订单创建成功</text>
+    <view class='code-disc'>
+      因规则限制，无法在此完成支付。已将支付链接发送至您的手机：{{userPhone}}，订单编号为<text class='code-disc2'>{{orderNo}}</text>，请您核对后进行支付。
+    </view>
+    <view class="code-pic img-box">
+        <image  bindtap="previewImg"  src="{{imagePath}}"></image>
+    </view>
+
+    <text class='code-b'>您也可以点击图片后\n 长按保存图片进行扫码支付</text>
+  </view>
+</view>
+<!--二维码图-->
+<view hidden="{{maskHidden}}" class="mask"></view>
+<view class="canvas-box">
+  <canvas  hidden="{{canvasHidden}}" style="width: 686rpx;height: 686rpx;background:#f1f1f1;" canvas-id="mycanvas"/>
+</view>
+
+<!--pages/main/index.wxml-->
+<!-- <view class="container-box">
+    <view class="img-box">
+        <image bindtap="previewImg" mode="scaleToFill" src="{{imagePath}}"></image>
+    </view>
+    <form bindsubmit="formSubmit">
+        <view class="input-row">
+            <label>网址</label>
+            <input name='url' value='' type="text" maxlength="255" placeholder="{{placeholder}}"/>
+        </view>
+  
+        <button formType="submit" class="mybtn" type="primary">生成二维码</button>
+    </form>
+</view>
+<view hidden="{{maskHidden}}" class="mask"></view>
+<view class="canvas-box">
+  <canvas  hidden="{{canvasHidden}}" style="width: 686rpx;height: 686rpx;background:#f1f1f1;" canvas-id="mycanvas"/>
+</view> -->
+

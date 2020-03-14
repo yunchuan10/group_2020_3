@@ -1,0 +1,62 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false,
+		"checkInvalidKey": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.6.6",
+	"appid": "wx0877db082128d497",
+	"projectname": "%E4%B8%9C%E6%96%B9%E5%B0%9A%E5%AD%A6%E5%B0%8F%E7%A8%8B%E5%BA%8F12",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 1,
+			"list": [
+				{
+					"id": 0,
+					"name": "扫描二维码",
+					"pathName": "pages/course/course",
+					"query": "courderId=68",
+					"scene": 1011
+				},
+				{
+					"id": 1,
+					"name": "扫描二维码",
+					"pathName": "pages/openCourse/openCourse",
+					"query": "courderId=7",
+					"scene": 1012
+				}
+			]
+		}
+	}
+}
