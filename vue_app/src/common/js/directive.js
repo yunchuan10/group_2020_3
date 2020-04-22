@@ -7,6 +7,8 @@ const windowHeight = window.innerHeight;
     if (windowHeight == windowFocusHeight) {
       return
     }
+    
+    
     console.log(windowHeight + '--' + windowFocusHeight);
     console.log('修复');
     let currentPosition;

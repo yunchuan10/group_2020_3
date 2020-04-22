@@ -2,6 +2,7 @@
     <div id="app" class="out_contain">
         <!-- 路由 -->
         <router-view/>
+        
     </div>
 </template>
 
@@ -19,7 +20,7 @@ export default {
         }
 	},
     created() {
-
+        
     },
     mounted() {
         // console.log( process.env.API_BASE_URL )
