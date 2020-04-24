@@ -19,7 +19,7 @@ export const HomeIndex = () => ajax(
 	}
 )
 // 获取首页分类
-export const GetCategory = ( data ) => ajax(
+export const GetCategory = ( data = {} ) => ajax(
 	{
 		url: 'getCategory',
         type: 'post',
@@ -28,7 +28,7 @@ export const GetCategory = ( data ) => ajax(
 )
 
 // 课程列表接口
-export const CourseList = ( data ) => ajax(
+export const CourseList = ( data = {} ) => ajax(
 	{
 		url: 'index',
         type: 'post',
@@ -36,7 +36,7 @@ export const CourseList = ( data ) => ajax(
 	}
 )
 //售后提交接口
-export const afterSale = ( data ) => ajax(
+export const afterSale = ( data = {} ) => ajax(
 	{
 		url: 'myFeedBack',
         type: 'post',
@@ -53,7 +53,7 @@ export const afterSale = ( data ) => ajax(
 //	}
 //)
 //修改昵称或头像接口
-export const updateuser = ( data ) => ajax(
+export const updateuser = ( data = {} ) => ajax(
 	{
 		url:'updateuser',
 		type:'post',
@@ -62,7 +62,7 @@ export const updateuser = ( data ) => ajax(
 	}
 )
 //收藏列表接口
-export const CollectLists = ( data ) => ajax(
+export const CollectLists = ( data = {} ) => ajax(
 	{
 		url:'myCollect',
 		type:'post',
@@ -70,7 +70,7 @@ export const CollectLists = ( data ) => ajax(
 	}
 )
 //订单列表接口
-export const OrderLists = ( data ) => ajax(
+export const OrderLists = ( data = {} ) => ajax(
 	{
 		url:'myOrder',
 		type:'post',
@@ -78,7 +78,7 @@ export const OrderLists = ( data ) => ajax(
 	}
 )
 // 课程详情
-export const CourseDetail = ( data ) => ajax(
+export const CourseDetail = ( data = {} ) => ajax(
 	{
 		url:'courseDetail',
 		type:'post',
@@ -87,7 +87,7 @@ export const CourseDetail = ( data ) => ajax(
 )
 
 // 课程收藏
-export const cancelCollect = ( data ) => ajax(
+export const cancelCollect = ( data = {} ) => ajax(
 	{
 		url:'cancelCollect',
 		type:'post',
@@ -96,7 +96,7 @@ export const cancelCollect = ( data ) => ajax(
 )
 
 // 查询优惠码
-export const getCouponData = ( data ) => ajax(
+export const getCouponData = ( data = {} ) => ajax(
 	{
 		url:'xcx_check_coupon',
 		type:'post',
@@ -105,7 +105,7 @@ export const getCouponData = ( data ) => ajax(
 )
 
 // 查询课程是否是实物
-export const courseAddress = ( data ) => ajax(
+export const courseAddress = ( data = {} ) => ajax(
 	{
 		url:'isObject',
 		type:'post',
@@ -113,7 +113,7 @@ export const courseAddress = ( data ) => ajax(
 	}
 )
 
-courseAddress
+
 
 // 立即支付生成订单号
 export const createOrder = ( data ) => ajax(

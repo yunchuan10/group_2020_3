@@ -35,7 +35,7 @@
             <!-- 左侧 -->
             <div class="head-l">
                 <img src="../common/imgs/head1.png" alt="东方尚学">
-                <a @click="downApp" href="javascript:void(0);">下载APP</a>
+                <a @click="downApp" href="javascript:void(0);">下载APP</a> 
             </div>
 
             <!-- 右侧 -->
