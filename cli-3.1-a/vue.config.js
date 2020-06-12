@@ -15,22 +15,22 @@ module.exports = {
     productionSourceMap: false, // 如果你不需要生产环境的source map，可以将其设置为false，以加速生产环境的构建
 
     chainWebpack: (config)=>{
-      console.log(config.resolve.alias.set, 1111111111);
-      console.log(resolve('./src'), 22222222);
-      console.log(resolve('src'), 33333333);
-      //修改文件引入自定义路径
+    //   console.log(config.resolve.alias.set, 1111111111);
+    //   console.log(resolve('./src'), 22222222);
+    //   console.log(resolve('src'), 33333333);
+    //   //修改文件引入自定义路径
+    //   config.resolve.alias
+    //       .set('@', resolve('./src'))
+    //       .set('style', resolve('./src/assets'))
+
       config.resolve.alias
-          .set('@', resolve('./src'))
-          .set('style', resolve('./src/assets'))
+        .set('assets1', resolve('src/assets')) // 比如.set('@@', resolve('src/components'))
 
-      // config.resolve.alias
-      //   .set('@', resolve('src')) // 比如.set('@@', resolve('src/components'))
-
-      // config.module
-      //   .rule('images')
-      //     .use('url-loader')
-      //       .loader('url-loader')
-      //       .tap(options => Object.assign(options, { limit: 1024*10 }))
+      config.module
+        .rule('images')
+          .use('url-loader')
+            .loader('url-loader')
+            .tap(options => Object.assign(options, { limit: 1024*10 }))
 
 
 

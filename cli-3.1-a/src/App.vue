@@ -8,10 +8,9 @@
   </div>
 </template>
 
-<style lang="less">
+<style lang="scss">
 
-@import '@/assets/css/base.less';
-
+@import 'assets1/css/base.scss';
 
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
